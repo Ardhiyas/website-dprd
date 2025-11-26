@@ -9,8 +9,8 @@
     <meta name="keywords" content="">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="{{ asset('dist') }}/assets/img/favicon.png" rel="icon">
+    <link href="{{ asset('dist') }}/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -20,15 +20,15 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="{{ asset('dist') }}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('dist') }}/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="{{ asset('dist') }}/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="{{ asset('dist') }}/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="{{ asset('dist') }}/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="{{ asset('dist') }}/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Main CSS File -->
-    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="{{ asset('dist') }}/assets/css/main.css" rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: Medicio
@@ -58,7 +58,7 @@
 
             <div class="container position-relative d-flex align-items-center justify-content-end">
                 <a href="index.html" class="logo d-flex align-items-center me-auto">
-                    <img src="assets/img/logo.png" alt="">
+                    <img src="{{ asset('dist') }}/assets/img/logo.png" alt="">
                     <!-- Uncomment the line below if you also wish to use a text logo -->
                     <!-- <h1 class="sitename">Medicio</h1>  -->
                 </a>
@@ -111,7 +111,7 @@
                 data-bs-interval="5000">
 
                 <div class="carousel-item active">
-                    <img src="assets/img/hero-carousel/hero-carousel-1.jpg" alt="">
+                    <img src="{{ asset('dist') }}/assets/img/hero-carousel/hero-carousel-1.jpg" alt="">
                     <div class="container">
                         <h2>Welcome to Medicio</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -122,7 +122,7 @@
                 </div><!-- End Carousel Item -->
 
                 <div class="carousel-item">
-                    <img src="assets/img/hero-carousel/hero-carousel-2.jpg" alt="">
+                    <img src="{{ asset('dist') }}/assets/img/hero-carousel/hero-carousel-2.jpg" alt="">
                     <div class="container">
                         <h2>At vero eos et accusamus</h2>
                         <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id
@@ -133,7 +133,7 @@
                 </div><!-- End Carousel Item -->
 
                 <div class="carousel-item">
-                    <img src="assets/img/hero-carousel/hero-carousel-3.jpg" alt="">
+                    <img src="{{ asset('dist') }}/assets/img/hero-carousel/hero-carousel-3.jpg" alt="">
                     <div class="container">
                         <h2>Temporibus autem quibusdam</h2>
                         <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur
@@ -234,7 +234,7 @@
 
                 <div class="row gy-4">
                     <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
-                        <img src="assets/img/about.jpg" class="img-fluid" alt="">
+                        <img src="{{ asset('dist') }}/assets/img/about.jpg" class="img-fluid" alt="">
                         <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8"
                             class="glightbox pulsating-play-btn"></a>
                     </div>
@@ -331,7 +331,7 @@
 
                 <div class="row justify-content-around gy-4">
                     <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img
-                            src="assets/img/features.jpg" alt=""></div>
+                            src="{{ asset('dist') }}/assets/img/features.jpg" alt=""></div>
 
                     <div class="col-lg-5 d-flex flex-column justify-content-center" data-aos="fade-up"
                         data-aos-delay="200">
@@ -592,7 +592,7 @@
                                             quaerat quos qui similique accusamus nostrum rem vero</p>
                                     </div>
                                     <div class="col-lg-4 text-center order-1 order-lg-2">
-                                        <img src="assets/img/departments-1.jpg" alt="" class="img-fluid">
+                                        <img src="{{ asset('dist') }}/assets/img/departments-1.jpg" alt="" class="img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -608,7 +608,7 @@
                                             madirna desera vafle de nideran pal</p>
                                     </div>
                                     <div class="col-lg-4 text-center order-1 order-lg-2">
-                                        <img src="assets/img/departments-2.jpg" alt="" class="img-fluid">
+                                        <img src="{{ asset('dist') }}/assets/img/departments-2.jpg" alt="" class="img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -625,7 +625,7 @@
                                             Soluta et harum voluptatem optio quae</p>
                                     </div>
                                     <div class="col-lg-4 text-center order-1 order-lg-2">
-                                        <img src="assets/img/departments-3.jpg" alt="" class="img-fluid">
+                                        <img src="{{ asset('dist') }}/assets/img/departments-3.jpg" alt="" class="img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -641,7 +641,7 @@
                                             quia a laborum inventore</p>
                                     </div>
                                     <div class="col-lg-4 text-center order-1 order-lg-2">
-                                        <img src="assets/img/departments-4.jpg" alt="" class="img-fluid">
+                                        <img src="{{ asset('dist') }}/assets/img/departments-4.jpg" alt="" class="img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -656,7 +656,7 @@
                                             quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
                                     </div>
                                     <div class="col-lg-4 text-center order-1 order-lg-2">
-                                        <img src="assets/img/departments-5.jpg" alt="" class="img-fluid">
+                                        <img src="{{ asset('dist') }}/assets/img/departments-5.jpg" alt="" class="img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -715,7 +715,7 @@
                 <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
                 <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <img src="{{ asset('dist') }}/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                 <h3>Saul Goodman</h3>
                 <h4>Ceo &amp; Founder</h4>
               </div>
@@ -728,7 +728,7 @@
                   <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                <img src="{{ asset('dist') }}/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                 <h3>Sara Wilsson</h3>
                 <h4>Designer</h4>
               </div>
@@ -741,7 +741,7 @@
                   <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                <img src="{{ asset('dist') }}/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                 <h3>Jena Karlis</h3>
                 <h4>Store Owner</h4>
               </div>
@@ -754,7 +754,7 @@
                   <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                <img src="{{ asset('dist') }}/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
                 <h3>Matt Brandon</h3>
                 <h4>Freelancer</h4>
               </div>
@@ -767,7 +767,7 @@
                   <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <img src="{{ asset('dist') }}/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
                 <h3>John Larson</h3>
                 <h4>Entrepreneur</h4>
               </div>
@@ -797,7 +797,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="team-member">
               <div class="member-img">
-                <img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('dist') }}/assets/img/doctors/doctors-1.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -815,7 +815,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member">
               <div class="member-img">
-                <img src="assets/img/doctors/doctors-2.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('dist') }}/assets/img/doctors/doctors-2.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -833,7 +833,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member">
               <div class="member-img">
-                <img src="assets/img/doctors/doctors-3.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('dist') }}/assets/img/doctors/doctors-3.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -851,7 +851,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
             <div class="team-member">
               <div class="member-img">
-                <img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('dist') }}/assets/img/doctors/doctors-4.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -915,14 +915,14 @@
             }
           </script>
           <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-1.jpg"><img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-2.jpg"><img src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-3.jpg"><img src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-4.jpg"><img src="assets/img/gallery/gallery-4.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-5.jpg"><img src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-6.jpg"><img src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-7.jpg"><img src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-8.jpg"><img src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('dist') }}/assets/img/gallery/gallery-1.jpg"><img src="{{ asset('dist') }}/assets/img/gallery/gallery-1.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('dist') }}/assets/img/gallery/gallery-2.jpg"><img src="{{ asset('dist') }}/assets/img/gallery/gallery-2.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('dist') }}/assets/img/gallery/gallery-3.jpg"><img src="{{ asset('dist') }}/assets/img/gallery/gallery-3.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('dist') }}/assets/img/gallery/gallery-4.jpg"><img src="{{ asset('dist') }}/assets/img/gallery/gallery-4.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('dist') }}/assets/img/gallery/gallery-5.jpg"><img src="{{ asset('dist') }}/assets/img/gallery/gallery-5.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('dist') }}/assets/img/gallery/gallery-6.jpg"><img src="{{ asset('dist') }}/assets/img/gallery/gallery-6.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('dist') }}/assets/img/gallery/gallery-7.jpg"><img src="{{ asset('dist') }}/assets/img/gallery/gallery-7.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('dist') }}/assets/img/gallery/gallery-8.jpg"><img src="{{ asset('dist') }}/assets/img/gallery/gallery-8.jpg" class="img-fluid" alt=""></a></div>
           </div>
           <div class="swiper-pagination"></div>
         </div>
@@ -1269,15 +1269,15 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="{{ asset('dist') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ asset('dist') }}/assets/vendor/php-email-form/validate.js"></script>
+  <script src="{{ asset('dist') }}/assets/vendor/aos/aos.js"></script>
+  <script src="{{ asset('dist') }}/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="{{ asset('dist') }}/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="{{ asset('dist') }}/assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="{{ asset('dist') }}/assets/js/main.js"></script>
 
 </body>
 
