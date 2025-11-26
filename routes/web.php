@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,5 @@ Route::get('/welcome', function () {
 Route::get('/', function () {
     return view('pages.dashboard');
 });
+
+Route::get('/', [PagesController::class, 'index'])->name('home');

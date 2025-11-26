@@ -11,9 +11,17 @@ class navlink extends Component
     /**
      * Create a new component instance.
      */
+    public $links;
     public function __construct()
     {
-        //
+        $this->links = [
+            [
+                'label' => 'Home',
+                'route' => 'home',
+                'isActive' => request()->routeIs('home'),
+                'isDropdown' => false
+            ],
+        ];
     }
 
     /**

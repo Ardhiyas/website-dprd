@@ -22,7 +22,6 @@
 
                 <x-navlink />
 
-                <a class="cta-btn" href="index.html#appointment">Make an Appointment</a>
 
             </div>
 
