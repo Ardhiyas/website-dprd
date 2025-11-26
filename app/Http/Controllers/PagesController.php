@@ -10,4 +10,15 @@ class PagesController extends Controller
     {
         return view('pages.dashboard');
     }
+
+    public function pimpinanDprd()
+    {
+        return view('pages.pimpinan-dprd');
+    }
+
+    public function anggotaDprd()
+    {
+        return view('pages.anggota-dprd');
+    }
 }
+

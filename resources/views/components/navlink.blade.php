@@ -9,10 +9,9 @@
                 <li class="dropdown"><a href="#"><span>{{ $link['label'] }}</span> <i
                             class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
-                        <li><a href="#">Dropdown 1</a></li>
-                        <li><a href="#">Dropdown 2</a></li>
-                        <li><a href="#">Dropdown 3</a></li>
-                        <li><a href="#">Dropdown 4</a></li>
+                        @foreach ($link['dropdown'] as $child)
+                        <li><a href="{{ route($child['route']) }}">{{ $child['label'] }}</a></li>
+                        @endforeach
                     </ul>
                 </li>
             @endif

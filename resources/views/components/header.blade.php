@@ -15,9 +15,11 @@
 
             <div class="container position-relative d-flex align-items-center justify-content-end">
                 <a href="index.html" class="logo d-flex align-items-center me-auto">
-                    <img src="{{ asset('dist') }}/assets/img/logo.png" alt="">
-                    <!-- Uncomment the line below if you also wish to use a text logo -->
-                    <!-- <h1 class="sitename">Medicio</h1>  -->
+                    <img src="{{ asset('dist') }}/assets/img/logo-dprd.jpg" alt="">
+                    <div class="d-flex flex-column">
+                        <h1 class="sitename">Dewan Perwakilan Rakyat Daerah</h1>  
+                        <h2 class="fs-5">Kabupaten Ponorogo</h2>
+                    </div>
                 </a>
 
                 <x-navlink />

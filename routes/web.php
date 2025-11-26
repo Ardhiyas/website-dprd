@@ -19,3 +19,5 @@ Route::get('/welcome', function () {
 });
 
 Route::get('/', [PagesController::class, 'index'])->name('home');
+Route::get('/pimpinan-dprd', [PagesController::class, 'pimpinanDprd'])->name('pimpinan-dprd');
+Route::get('/anggota-dprd', [PagesController::class, 'anggotaDprd'])->name('anggota-dprd');

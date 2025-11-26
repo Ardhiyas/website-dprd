@@ -21,6 +21,22 @@ class navlink extends Component
                 'isActive' => request()->routeIs('home'),
                 'isDropdown' => false
             ],
+            [
+                'label' => 'Dewan',
+                'route' => null,
+                'isActive' => request()->routeIs(['pimpinan-dprd', 'anggota-dprd']),
+                'isDropdown' => true,
+                'dropdown' => [
+                    [
+                        'label' => 'Pimpinan',
+                        'route' => 'pimpinan-dprd',
+                    ],
+                    [
+                        'label' => 'Anggota',
+                        'route' => 'anggota-dprd',
+                    ]
+                ]
+            ],
         ];
     }
 
