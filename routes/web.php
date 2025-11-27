@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,3 +44,13 @@ Route::get('/sakip', [PagesController::class, 'sakip'])->name('sakip');
 Route::get('/gallery', [PagesController::class, 'gallery'])->name('gallery');
 
 Route::get('/aspirasi', [PagesController::class, 'aspirasi'])->name('aspirasi');
+
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/', [LoginController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('/login', [LoginController::class, 'login'])->name('admin.login.submit');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+});
