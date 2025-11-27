@@ -6,7 +6,7 @@
                         class="{{ $link['isActive'] ? 'active' : '' }}">{{ $link['label'] }}</a></li>
             @endif
             @if ($link['isDropdown'])
-                <li class="dropdown"><a href="#"><span>{{ $link['label'] }}</span> <i
+                <li class="dropdown"><a href="#" class="{{ $link['isActive'] ? 'active' : '' }}"><span>{{ $link['label'] }}</span> <i
                             class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
                         @foreach ($link['dropdown'] as $child)

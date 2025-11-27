@@ -21,3 +21,24 @@ Route::get('/welcome', function () {
 Route::get('/', [PagesController::class, 'index'])->name('home');
 Route::get('/pimpinan-dprd', [PagesController::class, 'pimpinanDprd'])->name('pimpinan-dprd');
 Route::get('/anggota-dprd', [PagesController::class, 'anggotaDprd'])->name('anggota-dprd');
+
+Route::get('/komisi', [PagesController::class, 'komisi'])->name('komisi');
+
+Route::get('/fraksi-pkb', [PagesController::class, 'fraksiPkb'])->name('fraksi-pkb');
+Route::get('/fraksi-golkar', [PagesController::class, 'fraksiGolkar'])->name('fraksi-golkar');
+Route::get('/fraksi-pdip', [PagesController::class, 'fraksiPdip'])->name('fraksi-pdip');
+Route::get('/fraksi-nasdem', [PagesController::class, 'fraksiNasdem'])->name('fraksi-nasdem');
+Route::get('/fraksi-gerindra', [PagesController::class, 'fraksiGerindra'])->name('fraksi-gerindra');
+Route::get('/fraksi-demokrat', [PagesController::class, 'fraksiDemokrat'])->name('fraksi-demokrat');
+Route::get('/fraksi-pembangunan', [PagesController::class, 'fraksiPembangunan'])->name('fraksi-pembangunan');
+
+Route::get('/badan-kehormatan', [PagesController::class, 'badanKehormatan'])->name('badan-kehormatan');
+Route::get('/badan-anggaran', [PagesController::class, 'badanAnggaran'])->name('badan-anggaran');
+Route::get('/badan-musyawarah', [PagesController::class, 'badanMusyawarah'])->name('badan-musyawarah');
+Route::get('/badan-pembentukan', [PagesController::class, 'badanPembentukan'])->name('badan-pembentukan');
+
+Route::get('/organisasi', [PagesController::class, 'organisasi'])->name('organisasi');
+Route::get('/sakip', [PagesController::class, 'sakip'])->name('sakip');
+Route::get('/gallery', [PagesController::class, 'gallery'])->name('gallery');
+
+Route::get('/aspirasi', [PagesController::class, 'aspirasi'])->name('aspirasi');
