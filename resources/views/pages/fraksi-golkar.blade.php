@@ -1,58 +1,107 @@
 @extends('layouts.app')
-
 @section('content')
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Fraksi PKB</title>
-</head>
-<body class="bg-white text-gray-800">
 
-<section class="max-w-4xl mx-auto py-12 px-4">
-    <!-- Judul -->
-    <h1 class="text-3xl font-bold text-center tracking-wide mb-2">FRAKSI PKB</h1>
-    <!-- Subjudul -->
-    <h2 class="text-center text-sm uppercase tracking-widest mb-8">Fraksi Partai Kebangkitan Bangsa</h2>
+    </section><!-- /Stats Section -->
 
-    <!-- Logo -->
-    <div class="flex justify-center mb-10">
-        <img 
-            src="{{ asset('path-logo/pkb.png') }}" 
-            alt="logo PKB" 
-            class="w-40 h-40 object-contain"
-        />
-    </div>
+    <!-- Features Section -->
+    <section id="features" class="features section">
 
-    <!-- List Struktur -->
-    <div class="grid grid-cols-1 gap-4 text-lg">
-        <!-- Kolom Kiri (Nama + No) -->
-        <div class="space-y-4 px-6">
-            <div class="flex justify-between border-b pb-2">
-                <span class="font-semibold">1. Mujijatin</span>
-                <span>Ketua</span>
+        <div class="container">
+
+            <div class="row justify-content-around gy-4">
+                <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img
+                        src="{{ asset('dist') }}/assets/img/features.jpg" alt=""></div>
+
+                <div class="col-lg-5 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                    <h3>fRAKSI GOLKAR</h3>
+                    <p>FRAKSI PARTAI KEBANGKITAN BANGSA</p>
+
+                    <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fa-solid fa-hand-holding-medical flex-shrink-0"></i>
+                        <div>
+                            <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
+                            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+                                occaecati cupiditate non provident</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fa-solid fa-suitcase-medical flex-shrink-0"></i>
+                        <div>
+                            <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
+                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                                voluptatum deleniti atque</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="500">
+                        <i class="fa-solid fa-staff-snake flex-shrink-0"></i>
+                        <div>
+                            <h4><a href="" class="stretched-link">Dine Pad</a></h4>
+                            <p>Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut
+                                deserunt minus aut eligendi omnis</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="600">
+                        <i class="fa-solid fa-lungs flex-shrink-0"></i>
+                        <div>
+                            <h4><a href="" class="stretched-link">Tride clov</a></h4>
+                            <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non
+                                aspernatur odit amet. Et eligendi</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                </div>
             </div>
-            <div class="flex justify-between border-b pb-2">
-                <span class="font-semibold">2. Sasmoyo Yudhi Hantarno, S.Sos</span>
-                <span>Wakil Ketua</span>
-            </div>
-            <div class="flex justify-between border-b pb-2">
-                <span class="font-semibold">3. Tri Suryati, A.Md</span>
-                <span>Sekretaris</span>
-            </div>
-            <div class="flex justify-between border-b pb-2">
-                <span class="font-semibold">4. Dwi Agus Prayitno, S.H., M.Si</span>
-                <span>Anggota</span>
-            </div>
-            <div class="flex justify-between border-b pb-2">
-                <span class="font-semibold">5. H. Mashudi, S.H</span>
-                <span>Anggota</span>
-            </div>
+
         </div>
-    </div>
-</section>
 
+    </section><!-- /Features Section -->
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>FRAKSI PKB</h1>
+        </div>
+
+        <div class="subtitle">
+            <h2>FRAKSI PARTAI KEBANGKITAN BANGSA</h2>
+        </div>
+
+        <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Logo_PKB_2024.png" alt="Logo PKB">
+        </div>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td class="no-column">1.</td>
+                    <td class="name-column">MUJIATIN</td>
+                    <td class="position-column">KETUA</td>
+                </tr>
+                <tr>
+                    <td class="no-column">2.</td>
+                    <td class="name-column">SASMOYO YUDHI HANTARNO, S.Sos</td>
+                    <td class="position-column">WAKIL KETUA</td>
+                </tr>
+                <tr>
+                    <td class="no-column">3.</td>
+                    <td class="name-column">TRI SURYATI, A.Md</td>
+                    <td class="position-column">SEKERTARIS</td>
+                </tr>
+                <tr>
+                    <td class="no-column">4.</td>
+                    <td class="name-column">DWI AGUS PRAYITNO, S.H., M.Si</td>
+                    <td class="position-column">ANGGOTA</td>
+                </tr>
+                <tr>
+                    <td class="no-column">5.</td>
+                    <td class="name-column">H. MASHUDI, S.H</td>
+                    <td class="position-column">ANGGOTA</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
 @endsection
