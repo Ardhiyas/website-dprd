@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AnggotaController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PimpinanController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -54,7 +55,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('/pimpinan', [AnggotaController::class, 'index'])->name('pimpinan.index');
+    Route::get('/pimpinan', [PimpinanController::class, 'index'])->name('pimpinan.index');
     Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota.index');
 
 });

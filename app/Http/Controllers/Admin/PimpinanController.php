@@ -12,7 +12,7 @@ class PimpinanController extends Controller
      */
     public function index()
     {
-        return view('admin.pimpinan');
+        return view('admin.pimpinan.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class PimpinanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pimpinan.create');
     }
 
     /**
