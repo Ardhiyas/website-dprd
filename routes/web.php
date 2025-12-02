@@ -2,7 +2,20 @@
 
 use App\Http\Controllers\Admin\AnggotaController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\BadanAnggaranController;
+use App\Http\Controllers\Admin\BadanKehormatanController;
+use App\Http\Controllers\Admin\BadanMusyawarahController;
+use App\Http\Controllers\Admin\BadanPembentukanController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FraksiDemokratController;
+use App\Http\Controllers\Admin\FraksiGerindraController;
+use App\Http\Controllers\Admin\FraksiGolkarController;
+use App\Http\Controllers\Admin\FraksiNasdemController;
+use App\Http\Controllers\Admin\FraksiPdipController;
+use App\Http\Controllers\Admin\FraksiPembangunanController;
+use App\Http\Controllers\Admin\FraksiPkbController;
+use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\KomisiController;
 use App\Http\Controllers\Admin\PimpinanController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
@@ -55,7 +68,24 @@ Route::prefix('admin')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('/pimpinan', [PimpinanController::class, 'index'])->name('pimpinan.index');
-    Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota.index');
 
+    Route::resource('/pimpinan', PimpinanController::class);
+
+
+    Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota.index');
+    Route::get('/komisi', [KomisiController::class, 'index'])->name('komisi.index');
+    // Route::get('/aspirasi', [AspirasiController::class, 'index'])->name('aspirasi.index');
+    Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+    Route::get('/pkb', [FraksiPkbController::class, 'index'])->name('pkb.index');
+    Route::get('/golkar', [FraksiGolkarController::class, 'index'])->name('golkar.index');
+    Route::get('/pdip', [FraksiPdipController::class, 'index'])->name('pdip.index');
+    Route::get('/gerindra', [FraksiGerindraController::class, 'index'])->name('gerindra.index');
+    Route::get('/nasdem', [FraksiNasdemController::class, 'index'])->name('nasdem.index');
+    Route::get('/demokrat', [FraksiDemokratController::class, 'index'])->name('demokrat.index');
+    Route::get('/pembangunan', [FraksiPembangunanController::class, 'index'])->name('pembangunan.index');
+    Route::get('/anggaran', [BadanAnggaranController::class, 'index'])->name('anggaran.index');
+    Route::get('/kehormatan', [BadanKehormatanController::class, 'index'])->name('kehormatan.index');
+    Route::get('/musyawarah', [BadanMusyawarahController::class, 'index'])->name('musyawarah.index');
+    Route::get('/pembentukan', [BadanPembentukanController::class, 'index'])->name('pembentukan.index');
+    
 });

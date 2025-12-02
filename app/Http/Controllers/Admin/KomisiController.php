@@ -12,7 +12,7 @@ class KomisiController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.komisi.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class KomisiController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.komisi.create');
     }
 
     /**

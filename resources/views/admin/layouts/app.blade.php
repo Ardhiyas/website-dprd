@@ -49,30 +49,29 @@
                             <a href="{{ route('anggota.index') }}" class="dropdown-item">Anggota</a>
                         </div>
                     </div>
-                    <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Komisi</a>
-                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Gallery</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Ruang Aspirasi</a>
+                    <a href="{{ route('komisi.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Komisi</a>
+                    <a href="{{ route('gallery.index') }}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Gallery</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                                 class="far fa-file-alt me-2"></i>Fraksi</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="signin.html" class="dropdown-item">Fraksi PKB</a>
-                            <a href="signup.html" class="dropdown-item">Fraksi Golkar</a>
-                            <a href="404.html" class="dropdown-item">Fraksi PDIP Mapan</a>
-                            <a href="blank.html" class="dropdown-item">Fraksi Gerindra</a>
-                            <a href="blank.html" class="dropdown-item">Fraksi Nasdem</a>
-                            <a href="blank.html" class="dropdown-item">Fraksi Demokrat</a>
-                            <a href="blank.html" class="dropdown-item">Fraksi Pembangunan Keadilan Sejahtera</a>
+                            <a href="{{ route('pkb.index') }}" class="dropdown-item">Fraksi PKB</a>
+                            <a href="{{ route('golkar.index') }}" class="dropdown-item">Fraksi Golkar</a>
+                            <a href="{{ route('pdip.index') }}"class="dropdown-item">Fraksi PDIP Mapan</a>
+                            <a href="{{ route('gerindra.index') }}" class="dropdown-item">Fraksi Gerindra</a>
+                            <a href="{{ route('nasdem.index') }}" class="dropdown-item">Fraksi Nasdem</a>
+                            <a href="{{ route('demokrat.index') }}" class="dropdown-item">Fraksi Demokrat</a>
+                            <a href="{{ route('pembangunan.index') }}" class="dropdown-item">Fraksi Pembangunan Keadilan Sejahtera</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                             class="far fa-file-alt me-2"></i>Badan</a>
                     <div class="dropdown-menu bg-transparent border-0">
-                        <a href="signin.html" class="dropdown-item">Badan Kehormatan</a>
-                        <a href="signin.html" class="dropdown-item">Badan Anggaran</a>
-                        <a href="signin.html" class="dropdown-item">Badan Musyawarah</a>
-                        <a href="signin.html" class="dropdown-item">Badan Pembentukan Peraturan Daerah</a>
+                        <a href="{{ route('anggaran.index') }}" class="dropdown-item">Badan Anggaran</a>
+                        <a href="{{ route('musyawarah.index') }}" class="dropdown-item">Badan Musyawarah</a>
+                        <a href="{{ route('kehormatan.index') }}" class="dropdown-item">Badan Kehormatan</a>
+                        <a href="{{ route('pembentukan.index') }}" class="dropdown-item">Badan Pembentukan Peraturan Daerah</a>
                     </div>
                 </div>
                     <div class="nav-item dropdown">

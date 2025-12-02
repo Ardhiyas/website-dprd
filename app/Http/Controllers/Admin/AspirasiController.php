@@ -12,7 +12,7 @@ class AspirasiController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.aspirasi.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class AspirasiController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.aspirasi.create');
     }
 
     /**
