@@ -12,7 +12,7 @@ class FraksiGolkarController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.fraksi-golkar.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class FraksiGolkarController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.fraksi-golkar.create');
     }
 
     /**

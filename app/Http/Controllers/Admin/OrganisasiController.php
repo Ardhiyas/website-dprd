@@ -12,7 +12,7 @@ class OrganisasiController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.organisasi.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class OrganisasiController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.organisasi.create');
     }
 
     /**

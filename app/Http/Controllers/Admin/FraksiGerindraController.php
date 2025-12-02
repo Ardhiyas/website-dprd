@@ -12,7 +12,7 @@ class FraksiGerindraController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.fraksi-gerindra.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class FraksiGerindraController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.fraksi-gerindra.create');
     }
 
     /**

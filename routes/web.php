@@ -39,6 +39,7 @@ Route::get('/', [PagesController::class, 'index'])->name('home');
 Route::get('/pimpinan-dprd', [PagesController::class, 'pimpinanDprd'])->name('pimpinan-dprd');
 Route::get('/anggota-dprd', [PagesController::class, 'anggotaDprd'])->name('anggota-dprd');
 
+
 Route::get('/komisi', [PagesController::class, 'komisi'])->name('komisi');
 
 Route::get('/fraksi-pkb', [PagesController::class, 'fraksiPkb'])->name('fraksi-pkb');
@@ -71,21 +72,67 @@ Route::prefix('admin')->group(function () {
 
     Route::resource('/pimpinan', PimpinanController::class);
 
-
     Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota.index');
+    Route::resource('/anggota', AnggotaController::class);
+
     Route::get('/komisi', [KomisiController::class, 'index'])->name('komisi.index');
+    Route::resource('/komisi', KomisiController::class);
+
     // Route::get('/aspirasi', [AspirasiController::class, 'index'])->name('aspirasi.index');
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
-    Route::get('/pkb', [FraksiPkbController::class, 'index'])->name('pkb.index');
-    Route::get('/golkar', [FraksiGolkarController::class, 'index'])->name('golkar.index');
-    Route::get('/pdip', [FraksiPdipController::class, 'index'])->name('pdip.index');
-    Route::get('/gerindra', [FraksiGerindraController::class, 'index'])->name('gerindra.index');
-    Route::get('/nasdem', [FraksiNasdemController::class, 'index'])->name('nasdem.index');
-    Route::get('/demokrat', [FraksiDemokratController::class, 'index'])->name('demokrat.index');
-    Route::get('/pembangunan', [FraksiPembangunanController::class, 'index'])->name('pembangunan.index');
-    Route::get('/anggaran', [BadanAnggaranController::class, 'index'])->name('anggaran.index');
-    Route::get('/kehormatan', [BadanKehormatanController::class, 'index'])->name('kehormatan.index');
-    Route::get('/musyawarah', [BadanMusyawarahController::class, 'index'])->name('musyawarah.index');
-    Route::get('/pembentukan', [BadanPembentukanController::class, 'index'])->name('pembentukan.index');
+    Route::resource('/gallery', GalleryController::class);
     
+    Route::get('/pkb', [FraksiPkbController::class, 'index'])->name('pkb.index');
+    Route::resource('/pkb', FraksiPkbController::class);
+
+    Route::get('/golkar', [FraksiGolkarController::class, 'index'])->name('golkar.index');
+    Route::resource('/golkar', FraksiGolkarController::class);
+
+    Route::get('/pdip', [FraksiPdipController::class, 'index'])->name('pdip.index');
+    Route::resource('/pdip', FraksiPdipController::class);
+
+    Route::get('/gerindra', [FraksiGerindraController::class, 'index'])->name('gerindra.index');
+    Route::resource('/gerindra', FraksiGerindraController::class);
+
+    Route::get('/nasdem', [FraksiNasdemController::class, 'index'])->name('nasdem.index');
+    Route::resource('/nasdem', FraksiNasdemController::class);
+
+    Route::get('/demokrat', [FraksiDemokratController::class, 'index'])->name('demokrat.index');
+    Route::resource('/demokrat', FraksiDemokratController::class);
+
+    Route::get('/pembangunan', [FraksiPembangunanController::class, 'index'])->name('pembangunan.index');
+    Route::resource('/pembangunan', FraksiPembangunanController::class);
+
+    Route::get('/anggaran', [BadanAnggaranController::class, 'index'])->name('anggaran.index');
+    Route::resource('/anggaran', BadanAnggaranController::class);
+
+    Route::get('/kehormatan', [BadanKehormatanController::class, 'index'])->name('kehormatan.index');
+    Route::resource('/kehormatan', BadanKehormatanController::class);
+
+    Route::get('/musyawarah', [BadanMusyawarahController::class, 'index'])->name('musyawarah.index');
+    Route::resource('/musyawarah', BadanMusyawarahController::class);
+
+    Route::get('/pembentukan', [BadanPembentukanController::class, 'index'])->name('pembentukan.index');
+    Route::resource('/pembentukan', BadanPembentukanController::class);
+
+
+    Route::get('/badan-anggaran', [BadanAnggaranController::class, 'index'])->name('badan-anggaran.index');
+    Route::resource('/badan-anggaran', BadanAnggaranController::class);
+
+    Route::get('/badan-kehormatan', [BadanKehormatanController::class, 'index'])->name('badan-kehormatan.index');
+    Route::resource('/badan-kehormatan', BadanKehormatanController::class);
+
+    Route::get('/badan-musyawarah', [BadanMusyawarahController::class, 'index'])->name('badan-musyawarah.index');
+    Route::resource('/badan-musyawarah', BadanMusyawarahController::class);
+
+    Route::get('/badan-pembentukan', [BadanPembentukanController::class, 'index'])->name('badan-pembentukan.index');
+    Route::resource('/badan-pembentukan', BadanPembentukanController::class);
+
+    Route::get('/organisasi', [App\Http\Controllers\Admin\OrganisasiController::class, 'index'])->name('organisasi.index');
+    Route::resource('/organisasi', App\Http\Controllers\Admin\OrganisasiController::class);
+
+    Route::get('/sakip', [App\Http\Controllers\Admin\SakipController::class, 'index'])->name('sakip.index');
+    Route::resource('/sakip', App\Http\Controllers\Admin\SakipController::class);
+
+
 });

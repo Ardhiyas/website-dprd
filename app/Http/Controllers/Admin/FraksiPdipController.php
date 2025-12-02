@@ -12,7 +12,7 @@ class FraksiPdipController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.fraksi-pdip.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class FraksiPdipController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.fraksi-pdip.create');
     }
 
     /**

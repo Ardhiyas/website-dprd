@@ -12,7 +12,7 @@ class BadanKehormatanController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.badan-kehormatan.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class BadanKehormatanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.badan-kehormatan.create');
     }
 
     /**

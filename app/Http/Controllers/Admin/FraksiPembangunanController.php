@@ -12,7 +12,7 @@ class FraksiPembangunanController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.fraksi-pembangunan.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class FraksiPembangunanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.fraksi-pembangunan.create');
     }
 
     /**

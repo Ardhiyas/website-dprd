@@ -12,7 +12,7 @@ class FraksiDemokratController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.fraksi-demokrat.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class FraksiDemokratController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.fraksi-demokrat.create');
     }
 
     /**
