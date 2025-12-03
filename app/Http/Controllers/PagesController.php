@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\anggota;
+use App\Models\pimpinan;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -13,12 +15,14 @@ class PagesController extends Controller
 
     public function pimpinanDprd()
     {
-        return view('pages.pimpinan-dprd');
+        $data = pimpinan::all();
+        return view('pages.pimpinan-dprd', compact('data'));
     }
 
     public function anggotaDprd()
     {
-        return view('pages.anggota-dprd');
+        $data = anggota::all();
+        return view('pages.anggota-dprd', compact('data'));
     }
     public function komisi()
     {

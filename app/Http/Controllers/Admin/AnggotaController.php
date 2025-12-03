@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\anggota;
 use Illuminate\Http\Request;
 
 class AnggotaController extends Controller
@@ -12,7 +13,8 @@ class AnggotaController extends Controller
      */
     public function index()
     {
-        return view('admin.anggota.index');
+        $data = anggota::all();
+        return view('admin.anggota.index', compact('data'));
     }
 
 
@@ -29,7 +31,25 @@ class AnggotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'nama' => 'required',
+        'jabatan' => 'required',
+        'foto' => 'nullable|image|max:2048',
+        ]);
+
+        $filename=null;
+        if($request->hasFile('foto')){
+            $filename = time().'_'.$request->file('foto')->extension();
+            $request->file('foto')->move(public_path('uploads/anggota/'), $filename);
+        }
+
+        anggota::create([
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+            'foto' => $filename,
+        ]);
+        return redirect()->route('anggota.index')->with('success', 'Data berhasil ditambahkan.');
+
     }
 
     /**
@@ -45,7 +65,8 @@ class AnggotaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = anggota::findOrFail($id);
+        return view('admin.anggota.edit', compact('data'));
     }
 
     /**
@@ -53,7 +74,28 @@ class AnggotaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = anggota::findOrFail($id);
+
+        $request->validate([
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'foto' => 'nullable|image|max:2048',
+        ]);
+
+        $filename=$data->foto;
+        if($request->hasFile('foto')){
+            if($data->foto && file_exists(public_path('uploads/anggota/'.$data->foto))){
+                unlink(public_path('uploads/anggota/'.$data->foto));
+            }
+            $filename = time().'_'.$request->file('foto')->getClientOriginalName();
+            $request->file('foto')->move(public_path('uploads/anggota/'), $filename);
+        }
+        $data->update([
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+            'foto' => $filename,
+        ]);
+        return redirect()->route('anggota.index')->with('success', 'Data berhasil diupdate.');
     }
 
     /**
@@ -61,6 +103,12 @@ class AnggotaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = anggota::findOrFail($id);
+
+        if($data->foto && file_exists(public_path('uploads/anggota/'.$data->foto))){
+            unlink(public_path('uploads/anggota/'.$data->foto));
+        }
+        $data->delete();
+        return redirect()->route('anggota.index')->with('success', 'Data berhasil dihapus.');
     }
 }
