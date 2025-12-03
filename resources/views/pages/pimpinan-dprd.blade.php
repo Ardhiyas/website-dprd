@@ -12,79 +12,29 @@
           <div class="container">
 
             <div class="row gy-4">
-
-              <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                <div class="team-member">
-                  <div class="member-img">
-                    <img src="https://dprd-ponorogo.go.id/wp-content/uploads/2024/09/DSC_2956-scaled.jpg" class="img-fluid" alt="">
-                    <div class="social">
-                      <a href=""><i class="bi bi-twitter-x"></i></a>
-                      <a href=""><i class="bi bi-facebook"></i></a>
-                      <a href=""><i class="bi bi-instagram"></i></a>
-                      <a href=""><i class="bi bi-linkedin"></i></a>
-                    </div>
-                  </div>
-                  <div class="member-info">
-                    <h4>DWI AGUS PRAYITNO, S.H., M.Si</h4>
-                    <span>KETUA DPRD</span>
-                  </div>
-                </div>
-              </div><!-- End Team Member -->
-
+              @foreach($data as $item)
               <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                 <div class="team-member">
                   <div class="member-img">
-                    <img src="https://dprd-ponorogo.go.id/wp-content/uploads/2024/09/DSC_2933-scaled.jpg" class="img-fluid" alt="">
-                    <div class="social">
+                    @if($item->foto)
+                        <img src="{{ asset('uploads/pimpinan/'.$item->foto) }}" class="img-fluid" alt="">
+                    @else
+                        <img src="https://via.placeholder.com/300x300?text=No+Image" class="img-fluid" alt="No Image">
+                    @endif
+                    <!-- <div class="social">
                       <a href=""><i class="bi bi-twitter-x"></i></a>
                       <a href=""><i class="bi bi-facebook"></i></a>
                       <a href=""><i class="bi bi-instagram"></i></a>
                       <a href=""><i class="bi bi-linkedin"></i></a>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="member-info">
-                    <h4>EVI DWITASARI, S.Sos</h4>
-                    <span>WAKIL KETUA</span>
+                    <h4>{{ $item->nama }}</h4>
+                    <span>{{ $item->jabatan }}</span>
                   </div>
                 </div>
               </div><!-- End Team Member -->
-
-              <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                <div class="team-member">
-                  <div class="member-img">
-                    <img src="https://dprd-ponorogo.go.id/wp-content/uploads/2024/09/DSC_2858-scaled.jpg" class="img-fluid" alt="">
-                    <div class="social">
-                      <a href=""><i class="bi bi-twitter-x"></i></a>
-                      <a href=""><i class="bi bi-facebook"></i></a>
-                      <a href=""><i class="bi bi-instagram"></i></a>
-                      <a href=""><i class="bi bi-linkedin"></i></a>
-                    </div>
-                  </div>
-                  <div class="member-info">
-                    <h4>PAMUJI, S.Pd</h4>
-                    <span>WAKIL KETUA </span>
-                  </div>
-                </div>
-              </div><!-- End Team Member -->
-
-              <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-                <div class="team-member">
-                  <div class="member-img">
-                    <img src="https://dprd-ponorogo.go.id/wp-content/uploads/2024/09/DSC_2910-scaled.jpg" class="img-fluid" alt="">
-                    <div class="social">
-                      <a href=""><i class="bi bi-twitter-x"></i></a>
-                      <a href=""><i class="bi bi-facebook"></i></a>
-                      <a href=""><i class="bi bi-instagram"></i></a>
-                      <a href=""><i class="bi bi-linkedin"></i></a>
-                    </div>
-                  </div>
-                  <div class="member-info">
-                    <h4>ANIK SUHARTO, S.Sos</h4>
-                    <span>WAKIL KETUA</span>
-                  </div>
-                </div>
-              </div><!-- End Team Member -->
-
+              @endforeach
             </div>
 
           </div>
