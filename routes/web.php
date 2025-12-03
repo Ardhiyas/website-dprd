@@ -74,7 +74,6 @@ Route::prefix('admin')->group(function () {
 
     Route::resource('/anggota', AnggotaController::class);
 
-    Route::get('/komisi', [KomisiController::class, 'index'])->name('komisi.index');
     Route::resource('/komisi', KomisiController::class);
 
     // Route::get('/aspirasi', [AspirasiController::class, 'index'])->name('aspirasi.index');

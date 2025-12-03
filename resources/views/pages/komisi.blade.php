@@ -44,7 +44,7 @@
             }
           </script>
               <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="https://dprd-ponorogo.go.id/wp-content/uploads/2024/09/DSC_2944-scaled.jpg"><img src="https://dprd-ponorogo.go.id/wp-content/uploads/2024/09/DSC_2944-scaled.jpg" class="img-fluid" alt=""></a></div>
+                <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="https://dprd-ponorogo.go.id/wp-content/uploads/2024/09/DSC_2944-scaled.jpg"><img src="https://dprd-ponorogo.go.id/wp-content/uploads/2024/09/DSC_2944-scaled.jpg" class="img-fluid" alt="">KETUA</a></div>
                 <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="https://dprd-ponorogo.go.id/wp-content/uploads/2024/09/DSC_3020-scaled.jpg"><img src="https://dprd-ponorogo.go.id/wp-content/uploads/2024/09/DSC_3020-scaled.jpg" class="img-fluid" alt=""></a></div>
                 <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="https://dprd-ponorogo.go.id/wp-content/uploads/2024/09/DSC_2997-scaled.jpg"><img src="https://dprd-ponorogo.go.id/wp-content/uploads/2024/09/DSC_2997-scaled.jpg" class="img-fluid" alt=""></a></div>
                 <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="https://dprd-ponorogo.go.id/wp-content/uploads/2024/09/DSC_2986-scaled.jpg"><img src="https://dprd-ponorogo.go.id/wp-content/uploads/2024/09/DSC_2986-scaled.jpg" class="img-fluid" alt=""></a></div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\anggota;
+use App\Models\komisi;
 use App\Models\pimpinan;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,7 @@ class PagesController extends Controller
     }
     public function komisi()
     {
+        $data = komisi::all();
         return view('pages.komisi');
     }
     public function fraksiPkb()

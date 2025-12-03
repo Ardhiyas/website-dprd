@@ -15,7 +15,6 @@
                     <a href="#about" class="btn-get-started">Read More</a>
                 </div>
             </div><!-- End Carousel Item -->
-
             <div class="carousel-item">
                 <img src="{{ asset('dist') }}/assets/img/hero-carousel/hero-carousel-2.jpg" alt="">
                 <div class="container">
@@ -37,20 +36,56 @@
                     <a href="#about" class="btn-get-started">Read More</a>
                 </div>
             </div><!-- End Carousel Item -->
-
             <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
             </a>
-
             <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
                 <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
             </a>
-
             <ol class="carousel-indicators"></ol>
-
         </div>
-
     </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>About Us<br></h2>
+            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        </div><!-- End Section Title -->
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
+                    <img src="{{ asset('dist') }}/assets/img/about.jpg" class="img-fluid" alt="">
+                    <a href="https://youtu.be/yKbUQkkA-ks?si=2jk7nqbbuc89bJrk" class="glightbox pulsating-play-btn"></a>
+                </div>
+                <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                    <p class="fst-italic">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore
+                        magna aliqua.
+                    </p>
+                    <ul>
+                        <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat.</span></li>
+                        <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in
+                                voluptate velit.</span></li>
+                        <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
+                                storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+                    </ul>
+                    <p>
+                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate
+                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section><!-- /About Section -->
+
     <!-- Contact Section -->
         <section id="contact" class="contact section">
 

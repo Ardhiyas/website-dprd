@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\komisi;
 use Illuminate\Http\Request;
 
 class KomisiController extends Controller
@@ -12,7 +13,8 @@ class KomisiController extends Controller
      */
     public function index()
     {
-        return view('admin.komisi.index');
+        $data = komisi::all();
+        return view('admin.komisi.index', compact('data'));
     }
 
     /**
@@ -28,7 +30,25 @@ class KomisiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'nama' => 'required',
+        'jabatan' => 'required',
+        'foto' => 'nullable|image|max:2048',
+        ]);
+
+        $filename=null;
+        if($request->hasFile('foto')){
+            $filename = time().'_'.$request->file('foto')->extension();
+            $request->file('foto')->move(public_path('uploads/komisi/'), $filename);
+        }
+
+        komisi::create([
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+            'foto' => $filename,
+        ]);
+        return redirect()->route('komisi.index')->with('success', 'Data berhasil ditambahkan.');
+
     }
 
     /**
@@ -44,7 +64,8 @@ class KomisiController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = komisi::findOrFail($id);
+        return view('admin.komisi.edit', compact('data'));
     }
 
     /**
@@ -52,7 +73,28 @@ class KomisiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = komisi::findOrFail($id);
+
+        $request->validate([
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'foto' => 'nullable|image|max:2048',
+        ]);
+
+        $filename=$data->foto;
+        if($request->hasFile('foto')){
+            if($data->foto && file_exists(public_path('uploads/komisi/'.$data->foto))){
+                unlink(public_path('uploads/komisi/'.$data->foto));
+            }
+            $filename = time().'_'.$request->file('foto')->getClientOriginalName();
+            $request->file('foto')->move(public_path('uploads/komisi/'), $filename);
+        }
+        $data->update([
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+            'foto' => $filename,
+        ]);
+        return redirect()->route('komisi.index')->with('success', 'Data berhasil diupdate.');
     }
 
     /**
@@ -60,6 +102,12 @@ class KomisiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = komisi::findOrFail($id);
+
+        if($data->foto && file_exists(public_path('uploads/komisi/'.$data->foto))){
+            unlink(public_path('uploads/komisi/'.$data->foto));
+        }
+        $data->delete();
+        return redirect()->route('komisi.index')->with('success', 'Data berhasil dihapus.');
     }
 }
