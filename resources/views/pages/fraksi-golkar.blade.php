@@ -1,58 +1,61 @@
 @extends('layouts.app')
-
 @section('content')
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Fraksi PKB</title>
-</head>
-<body class="bg-white text-gray-800">
 
-<section class="max-w-4xl mx-auto py-12 px-4">
-    <!-- Judul -->
-    <h1 class="text-3xl font-bold text-center tracking-wide mb-2">FRAKSI PKB</h1>
-    <!-- Subjudul -->
-    <h2 class="text-center text-sm uppercase tracking-widest mb-8">Fraksi Partai Kebangkitan Bangsa</h2>
+    </section><!-- /Stats Section -->
 
-    <!-- Logo -->
-    <div class="flex justify-center mb-10">
-        <img 
-            src="{{ asset('path-logo/pkb.png') }}" 
-            alt="logo PKB" 
-            class="w-40 h-40 object-contain"
-        />
-    </div>
+    <!-- Features Section -->
+    <section id="features" class="features section">
 
-    <!-- List Struktur -->
-    <div class="grid grid-cols-1 gap-4 text-lg">
-        <!-- Kolom Kiri (Nama + No) -->
-        <div class="space-y-4 px-6">
-            <div class="flex justify-between border-b pb-2">
-                <span class="font-semibold">1. Mujijatin</span>
-                <span>Ketua</span>
-            </div>
-            <div class="flex justify-between border-b pb-2">
-                <span class="font-semibold">2. Sasmoyo Yudhi Hantarno, S.Sos</span>
-                <span>Wakil Ketua</span>
-            </div>
-            <div class="flex justify-between border-b pb-2">
-                <span class="font-semibold">3. Tri Suryati, A.Md</span>
-                <span>Sekretaris</span>
-            </div>
-            <div class="flex justify-between border-b pb-2">
-                <span class="font-semibold">4. Dwi Agus Prayitno, S.H., M.Si</span>
-                <span>Anggota</span>
-            </div>
-            <div class="flex justify-between border-b pb-2">
-                <span class="font-semibold">5. H. Mashudi, S.H</span>
-                <span>Anggota</span>
+        <div class="container">
+
+            <div class="row justify-content-around gy-4">
+                <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img
+                        src="https://dprd.batam.go.id/wp-content/uploads/sites/83/2024/10/GOLKAR.jpeg" alt=""></div>
+
+                <div class="col-lg-5 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                    <h3>FRAKSI GOLKAR</h3>
+                    <p>FRAKSI PARTAI GOLONGAN KARYA</p>
+
+                    <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fa-solid fa-hand-holding-medical flex-shrink-0"></i>
+                        <div>
+                            <h4><a href="" class="stretched-link">Ketua</a></h4>
+                            <p>EKO PRIYO UTOMO, S.T., M.E</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fa-solid fa-suitcase-medical flex-shrink-0"></i>
+                        <div>
+                            <h4><a href="" class="stretched-link">Wakil  Ketua</a></h4>
+                            <p>MOH. KOMARUDIN S.Ag., M.Si</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="500">
+                        <i class="fa-solid fa-staff-snake flex-shrink-0"></i>
+                        <div>
+                            <h4><a href="" class="stretched-link">Sekretaris</a></h4>
+                            <p>AYATULLAH ALI SYARI’ATI, S.H</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="600">
+                        <i class="fa-solid fa-lungs flex-shrink-0"></i>
+                        <div>
+                            <h4><a href="" class="stretched-link">Anggota</a></h4>
+                            <p>KATENI, S.H</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="600">
+                        <i class="fa-solid fa-lungs flex-shrink-0"></i>
+                        <div>
+                            <h4><a href="" class="stretched-link">Anggota</a></h4>
+                            <p>MURYANTO, S.IP</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
-</body>
-</html>
 @endsection
