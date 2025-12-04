@@ -74,7 +74,11 @@ Route::prefix('admin')->group(function () {
 
     Route::resource('/anggota', AnggotaController::class);
 
-    Route::resource('/komisi', KomisiController::class);
+    Route::prefix('admin')->name('admin.')->group(function() {
+    Route::resource('komisi', KomisiController::class);
+});
+    // route untuk halaman publik (Komisi A)
+    Route::get('/komisi-a', [PagesController::class, 'komisiA'])->name('page.komisi.a');
 
     // Route::get('/aspirasi', [AspirasiController::class, 'index'])->name('aspirasi.index');
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');

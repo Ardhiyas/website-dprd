@@ -7,12 +7,12 @@
         <div class="container">
 
             <div class="row justify-content-around gy-4">
-                <div class="features-image col-lg-4" data-aos="fade-up" data-aos-delay="100"><img
+                <div class="features-image col-lg-4" data-aos="fade-up" data-aos-delay="100" id="foto-fraksi"><img
                         src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMwTqnnAKEY0IeyeDwwkWepi_BtrmsvCPSJDvvHaRXhkDw666GnWVcySgz9z3VMfJl3z18llgpH9dFQH22EVMgQBoXIyFvXh31yn90IN8i4V4ef4STO6Re4C5EsgBafAWsHfdHORVt64KJqURTOAB95unYeawkYMWRY5uO_-jBftZMeaCsFsEx0A/w400-h400/Logo%20PKS%20Terbaru.png" alt=""></div>
 
                 <div class="col-lg-5 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
                     <h3>Struktur Anggota Fraksi PKS</h3>
-                    <p>Fraksi PKS terdiri dari para anggota DPRD yang berperan aktif dalam menyampaikan aspirasi masyarakat, merumuskan kebijakan, serta mengawasi pelaksanaan pemerintahan daerah sesuai dengan visi dan misi partai.</p>
+                    <p class="fst-italic" id="deskripsi" >Fraksi PKS terdiri dari para anggota DPRD yang berperan aktif dalam menyampaikan aspirasi masyarakat, merumuskan kebijakan, serta mengawasi pelaksanaan pemerintahan daerah sesuai dengan visi dan misi partai.</p>
                     <table class="table table-bordered table-striped table-hover mt-4 shadow-sm">
                         <thead class="table-primary text-center">
                             <tr>

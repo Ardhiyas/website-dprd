@@ -27,8 +27,8 @@ class PagesController extends Controller
     }
     public function komisi()
     {
-        $data = komisi::all();
-        return view('pages.komisi');
+        $members = Komisi::where('komisi', 'A')->orderBy('id')->get();
+        return view('page.komisi', compact('members'));
     }
     public function fraksiPkb()
     {

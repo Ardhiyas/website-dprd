@@ -1,35 +1,31 @@
 @extends('admin.layouts.app')
 @section('content')
 <div class="container py-5">
-    <div class="card bg-secondary">
-        <div class="card-header">
-            <h5 class="card-title">Tambah komisi</h5>
-        </div>
-
+    <div class="card">
+        <div class="card-header"><h5>Tambah Komisi</h5></div>
         <div class="card-body">
-            <form action="{{ route('komisi.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.komisi.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-
                 <div class="mb-3">
-                    <label class="form-label">Nama</label>
-                    <input type="text" name="nama" class="form-control" required>
+                    <label>Nama</label>
+                    <input type="text" name="nama" class="form-control" value="{{ old('nama') }}" required>
                 </div>
-
                 <div class="mb-3">
-                    <label class="form-label">Jabatan</label>
-                    <input type="text" name="jabatan" class="form-control" required>
+                    <label>Jabatan</label>
+                    <input type="text" name="jabatan" class="form-control" value="{{ old('jabatan') }}" required>
                 </div>
-
                 <div class="mb-3">
-                    <label class="form-label">Foto</label>
+                    <label>Komisi (contoh: A)</label>
+                    <input type="text" name="komisi" class="form-control" value="{{ old('komisi', 'A') }}" required>
+                </div>
+                <div class="mb-3">
+                    <label>Foto</label>
                     <input type="file" name="foto" class="form-control">
                 </div>
-
                 <div class="text-end">
-                    <a href="{{ route('komisi.index') }}" class="btn btn-danger">Kembali</a>
-                    <button type="submit" class="btn btn-success">Simpan</button>
+                    <a href="{{ route('admin.komisi.index') }}" class="btn btn-secondary">Batal</a>
+                    <button class="btn btn-success">Simpan</button>
                 </div>
-
             </form>
         </div>
     </div>

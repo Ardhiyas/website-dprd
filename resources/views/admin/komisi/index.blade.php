@@ -1,61 +1,52 @@
 @extends('admin.layouts.app')
 @section('content')
-
-<!-- KOMISI A -->
-<section>
 <div class="container py-5">
-    <div class="card bg-secondary">
-        <div class="card-header">
-            <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title">Komisi A</h5>
-                <a href="{{ route('komisi.create') }}" class="btn btn-round btn-primary">Tambah</a>
-            </div>
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Komisi</h5>
+            <a href="{{ route('admin.komisi.create') }}" class="btn btn-primary">Tambah</a>
         </div>
         <div class="card-body">
-            @if (session('success'))
-                <div class="alert alert-success">{{ session('success') }}</div>
-            @endif
-
-            <table class="table table-bordered text-center">
+            @if(session('success'))<div class="alert alert-success">{{ session('success') }}</div>@endif
+            <table class="table table-bordered table-striped text-center">
                 <thead class="table-dark">
                     <tr>
-                        <th>NO</th>
-                        <th>NAMA</th>
-                        <th>JABATAN</th>
-                        <th>FOTO</th>
-                        <th>AKSI</th>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Jabatan</th>
+                        <th>Komisi</th>
+                        <th>Foto</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($data as $item)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->nama }}</td>
-                            <td>{{ $item->jabatan }}</td>
-                            <td>
-                                @if($item->foto)
-                                    <img src="{{ asset('uploads/komisi/'.$item->foto) }}" width="70">
-                                @else
-                                    <span class="text-muted">Tidak ada foto</span>
-                                @endif
-                            </td>
-                            <td>
-                                <a href="{{ route('komisi.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ route('komisi.destroy', $item->id) }}" method="POST" class="d-inline">
-                                    @csrf @method('DELETE')
-                                    <button onclick="return confirm('Yakin hapus data?')" class="btn btn-danger btn-sm">Hapus</button>
-                                </form>
-                            </td>
-                        </tr>
+                    @forelse($data as $item)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->nama }}</td>
+                        <td>{{ $item->jabatan }}</td>
+                        <td>{{ $item->komisi }}</td>
+                        <td>
+                            @if($item->foto)
+                                <img src="{{ asset('uploads/komisi/'.$item->foto) }}" width="80" class="rounded">
+                            @else
+                                <span class="text-muted">-</span>
+                            @endif
+                        </td>
+                        <td>
+                            <a href="{{ route('admin.komisi.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            <form action="{{ route('admin.komisi.destroy', $item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus?')">
+                                @csrf @method('DELETE')
+                                <button class="btn btn-sm btn-danger">Hapus</button>
+                            </form>
+                        </td>
+                    </tr>
                     @empty
-                        <tr>
-                            <td colspan="5">Belum ada data</td>
-                        </tr>
+                    <tr><td colspan="6">Belum ada data.</td></tr>
                     @endforelse
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-</section>
 @endsection

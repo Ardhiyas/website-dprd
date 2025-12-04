@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class komisi extends Model
 {
     protected $table = 'komisi';
-    protected $fillable = ['nama', 'jabatan', 'foto'];
+    protected $fillable = ['nama','jabatan','komisi','foto'];
 }
