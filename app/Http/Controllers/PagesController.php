@@ -25,10 +25,11 @@ class PagesController extends Controller
         $data = anggota::all();
         return view('pages.anggota-dprd', compact('data'));
     }
+
     public function komisi()
     {
-        $members = Komisi::where('komisi', 'A')->orderBy('id')->get();
-        return view('page.komisi', compact('members'));
+        $data = Komisi::all();
+        return view('pages.komisi', compact('data'));
     }
     public function fraksiPkb()
     {

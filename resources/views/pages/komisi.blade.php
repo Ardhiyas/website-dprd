@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="swiper-wrapper align-items-center">
-    @forelse($members as $m)
+    @forelse($data as $m)
         <div class="swiper-slide">
             <a class="glightbox" data-gallery="images-gallery" href="{{ $m->foto ? asset('uploads/komisi/'.$m->foto) : '#' }}">
                 <img src="{{ $m->foto ? asset('uploads/komisi/'.$m->foto) : asset('path/to/default.jpg') }}" class="img-fluid" alt="">

@@ -14,7 +14,7 @@ class KomisiController extends Controller
      */
     public function index()
     {
-        $data = Komisi::orderBy('id', 'desc')->get();
+        $data = komisi::all();
         return view('admin.komisi.index', compact('data'));
     }
 
@@ -32,26 +32,24 @@ class KomisiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
-            'jabatan' => 'required|string|max:255',
-            'komisi' => 'required|string|max:5',
-            'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'foto' => 'nullable|image|max:2048',
         ]);
 
-        $filename = null;
-        if ($request->hasFile('foto')) {
-            $filename = time() . '_' . $request->file('foto')->getClientOriginalName();
+        $filename=null;
+        if($request->hasFile('foto')){
+            $filename = time().'_'.$request->file('foto')->extension();
             $request->file('foto')->move(public_path('uploads/komisi/'), $filename);
         }
 
         Komisi::create([
             'nama' => $request->nama,
             'jabatan' => $request->jabatan,
-            'komisi' => strtoupper($request->komisi),
             'foto' => $filename,
         ]);
 
-        return redirect()->route('admin.komisi.index')->with('success', 'Data berhasil ditambahkan.');
+        return redirect()->route('komisi.index')->with('success', 'Data berhasil ditambahkan.');
     }
 
     /**
@@ -71,10 +69,9 @@ class KomisiController extends Controller
         $data = Komisi::findOrFail($id);
 
         $request->validate([
-            'nama' => 'required|string|max:255',
-            'jabatan' => 'required|string|max:255',
-            'komisi' => 'required|string|max:5',
-            'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'foto' => 'nullable|image|max:2048',
         ]);
 
         $filename = $data->foto;
@@ -92,7 +89,6 @@ class KomisiController extends Controller
         $data->update([
             'nama' => $request->nama,
             'jabatan' => $request->jabatan,
-            'komisi' => strtoupper($request->komisi),
             'foto' => $filename,
         ]);
 
