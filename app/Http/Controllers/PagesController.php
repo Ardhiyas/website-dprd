@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\anggota;
 use App\Models\komisi;
 use App\Models\pimpinan;
+use App\Models\fraksiPembangunan;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -28,7 +30,7 @@ class PagesController extends Controller
 
     public function komisi()
     {
-        $data = Komisi::all();
+        $data = komisi::all();
         return view('pages.komisi', compact('data'));
     }
     public function fraksiPkb()
@@ -57,7 +59,14 @@ class PagesController extends Controller
     }
     public function fraksiPembangunan()
     {
-        return view('pages.fraksi-pembangunan');
+        // Ambil semua data fraksi pembangunan
+        $fraksiData = FraksiPembangunan::all();
+        
+        // Ambil entri pertama untuk judul, logo, dan deskripsi
+        $config = $fraksiData->first();
+
+        // Kirimkan kedua variabel ke view
+        return view('pages.fraksi-pembangunan', compact('fraksiData', 'config'));
     }
     public function badanKehormatan()
     {
@@ -86,7 +95,11 @@ class PagesController extends Controller
     }
     public function gallery()
     {
-        return view('pages.gallery');
+        // Ambil semua item gallery, diurutkan berdasarkan tanggal terbaru
+        $galleryItems = Gallery::orderBy('created_at', 'desc')->get();
+        
+        // Kirimkan data ke view
+        return view('pages.gallery', compact('galleryItems'));
     }
     public function aspirasi()
     {

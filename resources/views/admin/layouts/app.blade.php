@@ -68,10 +68,10 @@
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                             class="far fa-file-alt me-2"></i>Badan</a>
                     <div class="dropdown-menu bg-transparent border-0">
-                        <a href="{{ route('anggaran.index') }}" class="dropdown-item">Badan Anggaran</a>
-                        <a href="{{ route('musyawarah.index') }}" class="dropdown-item">Badan Musyawarah</a>
-                        <a href="{{ route('kehormatan.index') }}" class="dropdown-item">Badan Kehormatan</a>
-                        <a href="{{ route('pembentukan.index') }}" class="dropdown-item">Badan Pembentukan Peraturan Daerah</a>
+                        <a href="{{ route('badan-anggaran.index') }}" class="dropdown-item">Badan Anggaran</a>
+                        <a href="{{ route('badan-musyawarah.index') }}" class="dropdown-item">Badan Musyawarah</a>
+                        <a href="{{ route('badan-kehormatan.index') }}" class="dropdown-item">Badan Kehormatan</a>
+                        <a href="{{ route('badan-pembentukan.index') }}" class="dropdown-item">Badan Pembentukan Peraturan Daerah</a>
                     </div>
                 </div>
                     <div class="nav-item dropdown">

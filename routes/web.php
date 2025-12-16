@@ -24,24 +24,25 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
 */
 
+// --- RUTE PUBLIK ---
+// Rute Publik Utama
+Route::get('/', [PagesController::class, 'index'])->name('home');
 Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/', [PagesController::class, 'index'])->name('home');
+// Rute Publik Anggota dan Pimpinan
 Route::get('/pimpinan-dprd', [PagesController::class, 'pimpinanDprd'])->name('pimpinan-dprd');
 Route::get('/anggota-dprd', [PagesController::class, 'anggotaDprd'])->name('anggota-dprd');
 
-
+// Rute Publik Komisi dan Alat Kelengkapan
 Route::get('/komisi', [PagesController::class, 'komisi'])->name('komisi');
+// Route Komisi A (Contoh tambahan)
+Route::get('/komisi-a', [PagesController::class, 'komisiA'])->name('page.komisi.a'); // Pastikan komisiA ada di PagesController
 
+// Rute Publik Fraksi
 Route::get('/fraksi-pkb', [PagesController::class, 'fraksiPkb'])->name('fraksi-pkb');
 Route::get('/fraksi-golkar', [PagesController::class, 'fraksiGolkar'])->name('fraksi-golkar');
 Route::get('/fraksi-pdip', [PagesController::class, 'fraksiPdip'])->name('fraksi-pdip');
@@ -50,91 +51,54 @@ Route::get('/fraksi-gerindra', [PagesController::class, 'fraksiGerindra'])->name
 Route::get('/fraksi-demokrat', [PagesController::class, 'fraksiDemokrat'])->name('fraksi-demokrat');
 Route::get('/fraksi-pembangunan', [PagesController::class, 'fraksiPembangunan'])->name('fraksi-pembangunan');
 
+// Rute Publik Badan (Alat Kelengkapan DPRD)
 Route::get('/badan-kehormatan', [PagesController::class, 'badanKehormatan'])->name('badan-kehormatan');
 Route::get('/badan-anggaran', [PagesController::class, 'badanAnggaran'])->name('badan-anggaran');
 Route::get('/badan-musyawarah', [PagesController::class, 'badanMusyawarah'])->name('badan-musyawarah');
 Route::get('/badan-pembentukan', [PagesController::class, 'badanPembentukan'])->name('badan-pembentukan');
 
+// Rute Publik Lainnya
 Route::get('/organisasi', [PagesController::class, 'organisasi'])->name('organisasi');
 Route::get('/sakip', [PagesController::class, 'sakip'])->name('sakip');
 Route::get('/gallery', [PagesController::class, 'gallery'])->name('gallery');
-
+Route::get('/gallery/{slug}', [PagesController::class, 'showGalleryItem'])->name('gallery.show');
 Route::get('/aspirasi', [PagesController::class, 'aspirasi'])->name('aspirasi');
 
-
-
+// --- RUTE ADMIN ---
 Route::prefix('admin')->group(function () {
+    // Rute Autentikasi Admin
     Route::get('/', [LoginController::class, 'showLoginForm'])->name('admin.login');
     Route::post('/login', [LoginController::class, 'login'])->name('admin.login.submit');
     Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
+    // Rute Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
+    // Rute Resource Umum
     Route::resource('/pimpinan', PimpinanController::class);
-
     Route::resource('/anggota', AnggotaController::class);
-    Route::get('/komisi', [KomisiController::class, 'index'])->name('komisi.index');
-    Route::prefix('admin')->name('admin.')->group(function() {
+    // CATATAN: Ganti nama rute resource gallery agar tidak bentrok dengan yang di dalam
+    Route::resource('/gallery', GalleryController::class); 
+
+    // Rute Komisi (Dihapus duplikasi prefix 'admin')
     Route::resource('/komisi', KomisiController::class);
-});
-    // route untuk halaman publik (Komisi A)
-    Route::get('/komisi-a', [PagesController::class, 'komisiA'])->name('page.komisi.a');
 
-    // Route::get('/aspirasi', [AspirasiController::class, 'index'])->name('aspirasi.index');
-    Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
-    Route::resource('/gallery', GalleryController::class);
-    
-    Route::get('/pkb', [FraksiPkbController::class, 'index'])->name('pkb.index');
+    // Rute Resource Fraksi (Disederhanakan, dihapus Route::get redundan)
     Route::resource('/pkb', FraksiPkbController::class);
-
-    Route::get('/golkar', [FraksiGolkarController::class, 'index'])->name('golkar.index');
     Route::resource('/golkar', FraksiGolkarController::class);
-
-    Route::get('/pdip', [FraksiPdipController::class, 'index'])->name('pdip.index');
     Route::resource('/pdip', FraksiPdipController::class);
-
-    Route::get('/gerindra', [FraksiGerindraController::class, 'index'])->name('gerindra.index');
     Route::resource('/gerindra', FraksiGerindraController::class);
-
-    Route::get('/nasdem', [FraksiNasdemController::class, 'index'])->name('nasdem.index');
     Route::resource('/nasdem', FraksiNasdemController::class);
-
-    Route::get('/demokrat', [FraksiDemokratController::class, 'index'])->name('demokrat.index');
     Route::resource('/demokrat', FraksiDemokratController::class);
-
-    Route::get('/pembangunan', [FraksiPembangunanController::class, 'index'])->name('pembangunan.index');
     Route::resource('/pembangunan', FraksiPembangunanController::class);
 
-    Route::get('/anggaran', [BadanAnggaranController::class, 'index'])->name('anggaran.index');
-    Route::resource('/anggaran', BadanAnggaranController::class);
-
-    Route::get('/kehormatan', [BadanKehormatanController::class, 'index'])->name('kehormatan.index');
-    Route::resource('/kehormatan', BadanKehormatanController::class);
-
-    Route::get('/musyawarah', [BadanMusyawarahController::class, 'index'])->name('musyawarah.index');
-    Route::resource('/musyawarah', BadanMusyawarahController::class);
-
-    Route::get('/pembentukan', [BadanPembentukanController::class, 'index'])->name('pembentukan.index');
-    Route::resource('/pembentukan', BadanPembentukanController::class);
-
-
-    Route::get('/badan-anggaran', [BadanAnggaranController::class, 'index'])->name('badan-anggaran.index');
+    // Rute Resource Badan (Disederhanakan, menggunakan nama rute yang lebih pendek: anggaran, kehormatan, dll.)
     Route::resource('/badan-anggaran', BadanAnggaranController::class);
-
-    Route::get('/badan-kehormatan', [BadanKehormatanController::class, 'index'])->name('badan-kehormatan.index');
     Route::resource('/badan-kehormatan', BadanKehormatanController::class);
-
-    Route::get('/badan-musyawarah', [BadanMusyawarahController::class, 'index'])->name('badan-musyawarah.index');
     Route::resource('/badan-musyawarah', BadanMusyawarahController::class);
-
-    Route::get('/badan-pembentukan', [BadanPembentukanController::class, 'index'])->name('badan-pembentukan.index');
     Route::resource('/badan-pembentukan', BadanPembentukanController::class);
 
-    Route::get('/organisasi', [App\Http\Controllers\Admin\OrganisasiController::class, 'index'])->name('organisasi.index');
+    // Rute Resource Lainnya
     Route::resource('/organisasi', App\Http\Controllers\Admin\OrganisasiController::class);
-
-    Route::get('/sakip', [App\Http\Controllers\Admin\SakipController::class, 'index'])->name('sakip.index');
     Route::resource('/sakip', App\Http\Controllers\Admin\SakipController::class);
-
-
 });
