@@ -131,34 +131,34 @@
         @php
             $sakipItems = [
                 [
-                    'icon' => '/img/sakip/calendar.png',
+                    'icon' => 'https://dlh.ponorogo.go.id/wp-content/uploads/2020/04/1465236978_resolutions-04.png',
                     'title' => 'RENSTRA 2021–2026',
                     'subtitle' => 'Rencana Strategis',
-                    'link' => '#'
+                    'link' => 'https://drive.google.com/file/d/1YoY-7th_mqWMcbcIyiDhhEMiEFl1PXQ1/view'
                 ],
                 [
                     'icon' => '/img/sakip/timer.png',
                     'title' => 'RENJA 2024',
                     'subtitle' => 'Rencana Kerja Tahun 2024',
-                    'link' => '#'
+                    'link' => 'https://drive.google.com/file/d/18PQH-5VtJ73wVSzLsuM3yoJvM2dniWkL/view'
                 ],
                 [
                     'icon' => '/img/sakip/money.png',
                     'title' => 'IKU 2024',
                     'subtitle' => 'Indikator Kinerja Utama',
-                    'link' => '#'
+                    'link' => 'https://drive.google.com/file/d/15k2aI9YveY8-Chws_QSe44S2xl2-NwWh/view'
                 ],
                 [
                     'icon' => '/img/sakip/pencil.png',
                     'title' => 'PERKIN 2024',
                     'subtitle' => 'Perjanjian Kinerja',
-                    'link' => '#'
+                    'link' => 'https://drive.google.com/file/d/1aCYCFHysgaGGYkRz0trPsAlz38LO-S38/view'
                 ],
                 [
                     'icon' => '/img/sakip/document.png',
                     'title' => 'LKj 2024',
                     'subtitle' => 'Laporan Kinerja',
-                    'link' => '#'
+                    'link' => 'https://drive.google.com/file/d/1hizpji2hn3Dwu32tntmRiJlMOsso7-qz/view'
                 ]
             ];
         @endphp
