@@ -4,18 +4,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo; // Import ini
 
 class KomisiImage extends Model
 {
-    protected $fillable = [
-        'komisi_id', 
-        'path_gambar', 
-        'order'
-    ];
+    protected $fillable = ['komisi_id', 'path_gambar', 'order'];
 
-    // Definisikan relasi: Gambar ini milik satu Komisi
-    public function komisi(): BelongsTo
+    // Gambar ini dimiliki oleh satu Komisi
+    public function komisi()
     {
         return $this->belongsTo(Komisi::class);
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\badanpembentukan;
 use Illuminate\Http\Request;
 
 class BadanPembentukanController extends Controller
@@ -12,7 +13,8 @@ class BadanPembentukanController extends Controller
      */
     public function index()
     {
-        return view('admin.badan-pembentukan.index');
+        $data = badanpembentukan::all();
+        return view('admin.badan-pembentukan.index', compact('data'));
     }
 
     /**
@@ -28,7 +30,24 @@ class BadanPembentukanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'nama' => 'required',
+        'jabatan' => 'required',
+        'foto' => 'nullable|image|max:2048',
+        ]);
+
+        $filename=null;
+        if($request->hasFile('foto')){
+            $filename = time().'_'.$request->file('foto')->extension();
+            $request->file('foto')->move(public_path('uploads/badan-pembentukan/'), $filename);
+        }
+
+        badanpembentukan::create([
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+            'foto' => $filename,
+        ]);
+        return redirect()->route('badan-pembentukan.index')->with('success', 'Data berhasil ditambahkan.');
     }
 
     /**
@@ -44,7 +63,8 @@ class BadanPembentukanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = badanpembentukan::findOrFail($id);
+        return view('admin.badan-pembentukan.edit', compact('data'));
     }
 
     /**
@@ -52,7 +72,28 @@ class BadanPembentukanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = badanpembentukan::findOrFail($id);
+
+        $request->validate([
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'foto' => 'nullable|image|max:2048',
+        ]);
+
+        $filename=$data->foto;
+        if($request->hasFile('foto')){
+            if($data->foto && file_exists(public_path('uploads/badan-pembentukan/'.$data->foto))){
+                unlink(public_path('uploads/badan-pembentukan/'.$data->foto));
+            }
+            $filename = time().'_'.$request->file('foto')->getClientOriginalName();
+            $request->file('foto')->move(public_path('uploads/badan-pembentukan/'), $filename);
+        }
+        $data->update([
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+            'foto' => $filename,
+        ]);
+        return redirect()->route('badan-pembentukan.index')->with('success', 'Data berhasil diupdate.');   
     }
 
     /**
@@ -60,6 +101,12 @@ class BadanPembentukanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = badanpembentukan::findOrFail($id);
+
+        if($data->foto && file_exists(public_path('uploads/badan-pembentukan/'.$data->foto))){
+            unlink(public_path('uploads/badan-pembentukan/'.$data->foto));
+        }
+        $data->delete();
+        return redirect()->route('badan-pembentukan.index')->with('success', 'Data berhasil dihapus.');
     }
 }

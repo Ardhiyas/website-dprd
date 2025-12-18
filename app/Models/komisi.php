@@ -1,21 +1,16 @@
 <?php
 // app/Models/Komisi.php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany; // Import ini
 
-class Komisi extends Model
+class Komisi extends Model 
 {
-    protected $fillable = [
-        'nama', 
-        'deskripsi' // Pastikan ini ada di $fillable
-        // ... kolom lain
-    ];
+    // Tambahkan 'deskripsi' di fillable agar bisa diupdate
+    protected $fillable = ['nama', 'deskripsi']; 
     
-    // Definisikan relasi: Satu Komisi memiliki banyak Gambar
-    public function images(): HasMany 
+    // Satu Komisi memiliki banyak Gambar (KomisiImage)
+    public function images()
     {
         return $this->hasMany(KomisiImage::class)->orderBy('order');
     }

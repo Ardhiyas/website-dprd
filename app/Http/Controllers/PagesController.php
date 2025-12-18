@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\anggota;
+use App\Models\badanpembentukan;
 use App\Models\komisi;
 use App\Models\pimpinan;
 use App\Models\fraksiPembangunan;
@@ -30,7 +31,7 @@ class PagesController extends Controller
 
     public function komisi()
     {
-        $data = komisi::all();
+        $data = Komisi::with('images')->orderBy('nama')->get(); 
         return view('pages.komisi', compact('data'));
     }
     public function fraksiPkb()
@@ -82,7 +83,8 @@ class PagesController extends Controller
     }
     public function badanPembentukan()
     {
-        return view('pages.badan-pembentukan');
+        $data = badanpembentukan::all();
+        return view('pages.badan-pembentukan', compact('data'));
     }
     
     public function organisasi()

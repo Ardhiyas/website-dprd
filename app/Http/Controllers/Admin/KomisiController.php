@@ -4,26 +4,28 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Komisi;
+use App\Models\KomisiImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB; // Digunakan untuk transaksi
 
 class KomisiController extends Controller
 {
+    // Direktori tempat gambar Komisi akan disimpan (di public/)
     private $uploadDir = 'uploads/komisi/';
 
     /**
-     * Menampilkan daftar semua Komisi.
+     * Menampilkan daftar semua Komisi. (READ - Index)
      */
     public function index()
     {
+        // Mengambil semua Komisi, siap untuk ditampilkan di tabel admin
         $komisiList = Komisi::all();
-        // Asumsi view index admin terletak di admin/komisi/index.blade.php
         return view('admin.komisi.index', compact('komisiList'));
     }
 
     /**
-     * Menampilkan formulir untuk membuat Komisi baru.
+     * Menampilkan formulir untuk membuat Komisi baru. (CREATE - Form)
      */
     public function create()
     {
@@ -31,14 +33,14 @@ class KomisiController extends Controller
     }
 
     /**
-     * Menyimpan data Komisi baru ke database.
+     * Menyimpan data Komisi baru ke database. (CREATE - Store)
      */
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:255|unique:komisis,nama',
+            'nama' => 'required|string|max:255|unique:komisis,nama', // Nama harus unik
             'deskripsi' => 'required|string',
-            'initial_images.*' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'initial_images.*' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Gambar awal (multi-upload)
         ]);
 
         DB::beginTransaction();
@@ -52,13 +54,15 @@ class KomisiController extends Controller
             // 2. Handle Upload Gambar Awal
             if ($request->hasFile('initial_images')) {
                 foreach ($request->file('initial_images') as $image) {
-                    $filename = time() . '_' . $image->getClientOriginalName();
-                    $image->move(public_path($this->uploadDir), $filename);
-                    
-                    Komisi::create([
-                        'komisi_id' => $komisi->id,
-                        'path_gambar' => $filename,
-                    ]);
+                    if ($image && $image->isValid()) {
+                        $filename = time() . '_' . $image->getClientOriginalName();
+                        $image->move(public_path($this->uploadDir), $filename);
+                        
+                        KomisiImage::create([
+                            'komisi_id' => $komisi->id,
+                            'path_gambar' => $filename,
+                        ]);
+                    }
                 }
             }
             
@@ -67,33 +71,33 @@ class KomisiController extends Controller
             
         } catch (\Exception $e) {
             DB::rollback();
+            // Jika terjadi error, kembali ke form dengan input sebelumnya
             return redirect()->back()->with('error', 'Gagal menyimpan data Komisi.')->withInput();
         }
     }
 
     /**
-     * Menampilkan formulir untuk mengedit Komisi tertentu.
+     * Menampilkan formulir untuk mengedit Komisi tertentu. (UPDATE - Form)
      */
     public function edit(string $id)
     {
-        // Mengambil Komisi dengan relasi gambarnya
+        // Mengambil Komisi beserta semua relasi gambarnya (eager loading)
         $komisi = Komisi::with('images')->findOrFail($id);
-        return view('admin.komisi.edit', compact('komisi'));
+        return view('admin.komisi.edit', compact('komisi'))->with('uploadDir', $this->uploadDir);
     }
 
     /**
-     * Memperbarui data Komisi yang sudah ada.
+     * Memperbarui data Komisi yang sudah ada. (UPDATE - Store)
      */
     public function update(Request $request, string $id)
     {
         $komisi = Komisi::findOrFail($id);
 
         $validated = $request->validate([
-            'nama' => 'required|string|max:255', // Asumsi nama tidak diubah/dijaga agar tetap unik di form
+            'nama' => 'required|string|max:255',
             'deskripsi' => 'required|string',
-            // Validasi untuk gambar baru (jika diunggah)
-            'new_images.*' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', 
-            'delete_images_ids' => 'nullable|string', // Untuk JSON array ID yang akan dihapus
+            'new_images.*' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Gambar baru
+            'delete_images_ids' => 'nullable|string', // ID gambar yang akan dihapus (JSON)
         ]);
 
         DB::beginTransaction();
@@ -107,12 +111,11 @@ class KomisiController extends Controller
             // 2. Handle Upload Gambar Baru
             if ($request->hasFile('new_images')) {
                 foreach ($request->file('new_images') as $image) {
-                    // Cek apakah file valid sebelum diproses
                     if ($image && $image->isValid()) {
                         $filename = time() . '_' . $image->getClientOriginalName();
                         $image->move(public_path($this->uploadDir), $filename);
                         
-                        Komisi::create([
+                        KomisiImage::create([
                             'komisi_id' => $komisi->id,
                             'path_gambar' => $filename,
                         ]);
@@ -122,15 +125,17 @@ class KomisiController extends Controller
             
             // 3. Handle Hapus Gambar Lama
             if ($request->filled('delete_images_ids')) {
+                // Decode array JSON ID gambar yang akan dihapus dari form
                 $idsToDelete = json_decode($request->input('delete_images_ids'), true);
                 
                 if (!empty($idsToDelete)) {
-                    $imagesToDelete = Komisi::where('komisi_id', $komisi->id)
+                    // Ambil record gambar yang ID-nya ada dalam daftar
+                    $imagesToDelete = KomisiImage::where('komisi_id', $komisi->id)
                                                  ->whereIn('id', $idsToDelete)
                                                  ->get();
 
                     foreach ($imagesToDelete as $img) {
-                        // Hapus file fisik
+                        // Hapus file fisik dari server
                         File::delete(public_path($this->uploadDir . $img->path_gambar));
                         // Hapus dari database
                         $img->delete();
@@ -143,12 +148,12 @@ class KomisiController extends Controller
 
         } catch (\Exception $e) {
             DB::rollback();
-            return redirect()->back()->with('error', 'Gagal mengupdate data Komisi. Error: ' . $e->getMessage())->withInput();
+            return redirect()->back()->with('error', 'Gagal mengupdate data Komisi.')->withInput();
         }
     }
 
     /**
-     * Menghapus Komisi dan gambar terkait.
+     * Menghapus Komisi dan gambar terkait. (DELETE)
      */
     public function destroy(string $id)
     {
@@ -161,20 +166,16 @@ class KomisiController extends Controller
                 File::delete(public_path($this->uploadDir . $img->path_gambar));
             }
 
-            // Hapus entri Komisi (KomisiImage akan otomatis terhapus karena onDelete('cascade') di migration)
             $komisiName = $komisi->nama;
+            // Hapus entri Komisi (KomisiImage akan terhapus otomatis karena onDelete('cascade'))
             $komisi->delete();
             
             DB::commit();
-            return redirect()->route('komisi.index')->with('success', 'Komisi ' . $komisiName . ' dan seluruh gambarnya berhasil dihapus.');
+            return redirect()->route('komisi.index')->with('success', 'Komisi ' . $komisiName . ' berhasil dihapus.');
             
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->with('error', 'Gagal menghapus Komisi.');
         }
     }
-
-    // show() tidak diimplementasikan karena tidak diperlukan dalam konteks ini
-
-    // private function handleImageUpload(Request $request) { ... } // (Disertakan di method store dan update)
 }

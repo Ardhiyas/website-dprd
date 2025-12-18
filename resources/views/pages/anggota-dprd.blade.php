@@ -21,12 +21,6 @@
                     @else
                         <img src="https://via.placeholder.com/300x300?text=No+Image" class="img-fluid" alt="No Image">
                     @endif
-                    <!-- <div class="social">
-                      <a href=""><i class="bi bi-twitter-x"></i></a>
-                      <a href=""><i class="bi bi-facebook"></i></a>
-                      <a href=""><i class="bi bi-instagram"></i></a>
-                      <a href=""><i class="bi bi-linkedin"></i></a>
-                    </div> -->
                   </div>
                   <div class="member-info">
                     <h4>{{ $item->nama }}</h4>
