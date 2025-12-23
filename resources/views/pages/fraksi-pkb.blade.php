@@ -48,7 +48,7 @@
                                     <td class="text-center">{{ $key + 1 }}</td>
                                     <td>{{ $anggota->nama }}</td>
                                     <td>
-                                        <span class="badge bg-primary px-3 py-2 text-white d-inline-block text-truncate" 
+                                        <span class="badge bg-success px-3 py-2 text-white d-inline-block text-truncate" 
                                               style="max-width: 200px;">
                                             {{ $anggota->jabatan }}
                                         </span>
