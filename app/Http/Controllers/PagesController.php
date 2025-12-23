@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\anggota;
 use App\Models\badanpembentukan;
+use App\Models\fraksiDemokrat;
+use App\Models\FraksiGerindra;
+use App\Models\FraksiNasdem;
+use App\Models\FraksiPdip;
 use App\Models\komisi;
 use App\Models\pimpinan;
 use App\Models\fraksiPembangunan;
@@ -44,19 +48,43 @@ class PagesController extends Controller
     }
     public function fraksiPdip()
     {
-        return view('pages.fraksi-pdip');
+        $fraksiData = FraksiPdip::all();
+        
+        // Ambil entri pertama untuk judul, logo, dan deskripsi
+        $config = $fraksiData->first();
+
+        // Kirimkan kedua variabel ke view
+        return view('pages.fraksi-nasdem', compact('fraksiData', 'config'));
     }
     public function fraksiNasdem()
     {
-        return view('pages.fraksi-nasdem');
+        $fraksiData = FraksiNasdem::all();
+        
+        // Ambil entri pertama untuk judul, logo, dan deskripsi
+        $config = $fraksiData->first();
+
+        // Kirimkan kedua variabel ke view
+        return view('pages.fraksi-nasdem', compact('fraksiData', 'config'));
     }
     public function fraksiGerindra()
     {
-        return view('pages.fraksi-gerindra');
+        $fraksiData = FraksiGerindra::all();
+        
+        // Ambil entri pertama untuk judul, logo, dan deskripsi
+        $config = $fraksiData->first();
+
+        // Kirimkan kedua variabel ke view
+        return view('pages.fraksi-nasdem', compact('fraksiData', 'config'));
     }
     public function fraksiDemokrat()
     {
-        return view('pages.fraksi-demokrat');
+        $fraksiData = fraksiDemokrat::all();
+        
+        // Ambil entri pertama untuk judul, logo, dan deskripsi
+        $config = $fraksiData->first();
+
+        // Kirimkan kedua variabel ke view
+        return view('pages.fraksi-demokrat', compact('fraksiData', 'config'));
     }
     public function fraksiPembangunan()
     {
