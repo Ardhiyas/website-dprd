@@ -54,7 +54,7 @@ class PagesController extends Controller
         $config = $fraksiData->first();
 
         // Kirimkan kedua variabel ke view
-        return view('pages.fraksi-nasdem', compact('fraksiData', 'config'));
+        return view('pages.fraksi-pdip', compact('fraksiData', 'config'));
     }
     public function fraksiNasdem()
     {
@@ -74,7 +74,7 @@ class PagesController extends Controller
         $config = $fraksiData->first();
 
         // Kirimkan kedua variabel ke view
-        return view('pages.fraksi-nasdem', compact('fraksiData', 'config'));
+        return view('pages.fraksi-gerindra', compact('fraksiData', 'config'));
     }
     public function fraksiDemokrat()
     {
