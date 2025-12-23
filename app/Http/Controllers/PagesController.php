@@ -6,11 +6,13 @@ use App\Models\anggota;
 use App\Models\badanpembentukan;
 use App\Models\fraksiDemokrat;
 use App\Models\FraksiGerindra;
+use App\Models\FraksiGolkar;
 use App\Models\FraksiNasdem;
 use App\Models\FraksiPdip;
 use App\Models\komisi;
 use App\Models\pimpinan;
 use App\Models\fraksiPembangunan;
+use App\Models\FraksiPkb;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 
@@ -40,11 +42,23 @@ class PagesController extends Controller
     }
     public function fraksiPkb()
     {
-        return view('pages.fraksi-pkb');
+        $fraksiData = FraksiPkb::all();
+        
+        // Ambil entri pertama untuk judul, logo, dan deskripsi
+        $config = $fraksiData->first();
+
+        // Kirimkan kedua variabel ke view
+        return view('pages.fraksi-pkb', compact('fraksiData', 'config'));
     }
     public function fraksiGolkar()
     {
-        return view('pages.fraksi-golkar');
+        $fraksiData = FraksiGolkar::all();
+        
+        // Ambil entri pertama untuk judul, logo, dan deskripsi
+        $config = $fraksiData->first();
+
+        // Kirimkan kedua variabel ke view
+        return view('pages.fraksi-golkar', compact('fraksiData', 'config'));
     }
     public function fraksiPdip()
     {
