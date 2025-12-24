@@ -39,8 +39,6 @@ Route::get('/anggota-dprd', [PagesController::class, 'anggotaDprd'])->name('angg
 
 // Rute Publik Komisi dan Alat Kelengkapan
 Route::get('/komisi', [PagesController::class, 'komisi'])->name('komisi');
-// Route Komisi A (Contoh tambahan)
-Route::get('/komisi-a', [PagesController::class, 'komisiA'])->name('page.komisi.a'); // Pastikan komisiA ada di PagesController
 
 // Rute Publik Fraksi
 Route::get('/fraksi-pkb', [PagesController::class, 'fraksiPkb'])->name('fraksi-pkb');
@@ -80,8 +78,13 @@ Route::prefix('admin')->group(function () {
     // CATATAN: Ganti nama rute resource gallery agar tidak bentrok dengan yang di dalam
     Route::resource('/gallery', GalleryController::class); 
 
-    // Rute Komisi (Dihapus duplikasi prefix 'admin')
-    Route::resource('/komisi', KomisiController::class);
+    Route::resource('komisi', KomisiController::class)->names([
+        'index' => 'admin.komisi.index',
+        'store' => 'admin.komisi.store',
+        'destroy' => 'admin.komisi.destroy',
+    ])->only(['index', 'store', 'destroy']);
+    // Tambahan route manual karena 'storeInfo' tidak ada di dalam standar Resource
+    Route::post('komisi/store-info', [KomisiController::class, 'storeInfo'])->name('admin.komisi.store_info');
 
     // Rute Resource Fraksi (Disederhanakan, dihapus Route::get redundan)
     Route::resource('/pkb', FraksiPkbController::class);

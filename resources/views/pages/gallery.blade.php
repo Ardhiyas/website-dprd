@@ -55,7 +55,7 @@
                     </div>
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold">{{ $item->judul }}</h5>
-                        <p class="card-text text-secondary mb-3">
+                        <p class="card-text text-secondary mb-3 text-align-justify">
                             {{ $item->deskripsi_singkat }}
                         </p>
                         {{-- Link ke halaman detail, menggunakan slug jika ada --}}

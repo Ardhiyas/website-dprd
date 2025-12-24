@@ -37,8 +37,14 @@ class PagesController extends Controller
 
     public function komisi()
     {
-        $data = Komisi::with('images')->orderBy('nama')->get(); 
-        return view('pages.komisi', compact('data'));
+            // Ambil semua data komisi dan urutkan berdasarkan kategori (A-D)
+        $all_data = \App\Models\Komisi::orderBy('kategori', 'asc')->get();
+
+        // Kelompokkan data berdasarkan kategori agar mudah di-looping di Blade
+        // Ini akan memisahkan mana yang Info dan mana yang Anggota otomatis
+        $data_komisi = $all_data->groupBy('kategori');
+
+        return view('pages.komisi', compact('data_komisi'));
     }
     public function fraksiPkb()
     {
