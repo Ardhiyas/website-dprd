@@ -12,9 +12,8 @@ class KomisiController extends Controller
     // Tambahkan "= null" agar parameter kategori tidak wajib diisi
     public function index($kategori = null)
     {
-        $data = Komisi::orderBy('kategori', 'asc')->get();
-        $kategori = 'SEMUA';
-        return view('admin.komisi.index', compact('data', 'kategori'));
+        $data = \App\Models\Komisi::orderBy('kategori', 'asc')->get();
+        return view('admin.komisi.index', compact('data'));
     }
 
     // Fungsi untuk menyimpan deskripsi komisi (Sesuai rencana Anda)

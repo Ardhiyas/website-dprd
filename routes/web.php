@@ -78,13 +78,10 @@ Route::prefix('admin')->group(function () {
     // CATATAN: Ganti nama rute resource gallery agar tidak bentrok dengan yang di dalam
     Route::resource('/gallery', GalleryController::class); 
 
-    Route::resource('komisi', KomisiController::class)->names([
-        'index' => 'admin.komisi.index',
-        'store' => 'admin.komisi.store',
-        'destroy' => 'admin.komisi.destroy',
-    ])->only(['index', 'store', 'destroy']);
-    // Tambahan route manual karena 'storeInfo' tidak ada di dalam standar Resource
-    Route::post('komisi/store-info', [KomisiController::class, 'storeInfo'])->name('admin.komisi.store_info');
+    // Tanpa 'as' => 'admin.', maka nama routenya otomatis 'komisi.index'
+    Route::resource('komisi', KomisiController::class)->only(['index', 'store', 'destroy']);
+    // Sesuaikan juga nama route manualnya
+    Route::post('komisi/store-info', [KomisiController::class, 'store_info'])->name('komisi.store_info');
 
     // Rute Resource Fraksi (Disederhanakan, dihapus Route::get redundan)
     Route::resource('/pkb', FraksiPkbController::class);
