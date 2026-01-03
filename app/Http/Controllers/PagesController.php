@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\anggota;
 use App\Models\BadanAnggaran;
+use App\Models\BadanKehormatan;
 use App\Models\BadanMusyawarah;
 use App\Models\badanpembentukan;
 use App\Models\fraksiDemokrat;
@@ -121,7 +122,8 @@ class PagesController extends Controller
     }
     public function badanKehormatan()
     {
-        return view('pages.badan-kehormatan');
+        $data = BadanKehormatan::all();
+        return view('pages.badan-kehormatan', compact('data'));
     }
     public function badanAnggaran()
     {
