@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BadanAnggaran;
+use App\Models\badanpembentukan;
 use Illuminate\Http\Request;
 
 class BadanAnggaranController extends Controller
@@ -12,7 +14,8 @@ class BadanAnggaranController extends Controller
      */
     public function index()
     {
-        return view('admin.badan-anggaran.index');
+        $data = BadanAnggaran::all();
+        return view('admin.badan-anggaran.index', compact('data'));
     }
 
     /**
@@ -28,7 +31,24 @@ class BadanAnggaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'nama' => 'required',
+        'jabatan' => 'required',
+        'foto' => 'nullable|image|max:2048',
+        ]);
+
+        $filename=null;
+        if($request->hasFile('foto')){
+            $filename = time().'_'.$request->file('foto')->extension();
+            $request->file('foto')->move(public_path('uploads/badan-anggaran/'), $filename);
+        }
+
+        BadanAnggaran::create([
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+            'foto' => $filename,
+        ]);
+        return redirect()->route('badan-anggaran.index')->with('success', 'Data berhasil ditambahkan.');
     }
 
     /**
@@ -44,7 +64,9 @@ class BadanAnggaranController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        
+        $data = BadanAnggaran::findOrFail($id);
+        return view('admin.badan-anggaran.edit', compact('data'));
     }
 
     /**
@@ -52,7 +74,28 @@ class BadanAnggaranController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = BadanAnggaran::findOrFail($id);
+
+        $request->validate([
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'foto' => 'nullable|image|max:2048',
+        ]);
+
+        $filename=$data->foto;
+        if($request->hasFile('foto')){
+            if($data->foto && file_exists(public_path('uploads/badan-anggaran/'.$data->foto))){
+                unlink(public_path('uploads/badan-anggaran/'.$data->foto));
+            }
+            $filename = time().'_'.$request->file('foto')->getClientOriginalName();
+            $request->file('foto')->move(public_path('uploads/badan-anggaran/'), $filename);
+        }
+        $data->update([
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+            'foto' => $filename,
+        ]);
+        return redirect()->route('badan-anggaran.index')->with('success', 'Data berhasil diupdate.');   
     }
 
     /**
@@ -60,6 +103,12 @@ class BadanAnggaranController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = BadanAnggaran::findOrFail($id);
+
+        if($data->foto && file_exists(public_path('uploads/badan-anggaran/'.$data->foto))){
+            unlink(public_path('uploads/badan-anggaran/'.$data->foto));
+        }
+        $data->delete();
+        return redirect()->route('badan-anggaran.index')->with('success', 'Data berhasil dihapus.');
     }
 }
