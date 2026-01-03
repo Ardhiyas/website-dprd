@@ -28,7 +28,7 @@
                     <h3 class="text-center text-lg-start mb-3">{{ $config->judul }}</h3>
                     <p class="fst-italic text-center text-lg-start mb-4" id="deskripsi">{{ $config->deskripsi }}</p>
                 @else
-                    <h3 class="text-center text-lg-start mb-3">Struktur Anggota Fraksi PKS (Data Belum Tersedia)</h3>
+                    <h3 class="text-center text-lg-start mb-3">Struktur Anggota Fraksi Gerindra (Data Belum Tersedia)</h3>
                     <p class="fst-italic text-center text-lg-start mb-4" id="deskripsi">Silakan masukkan data fraksi melalui halaman admin.</p>
                 @endif
                 
