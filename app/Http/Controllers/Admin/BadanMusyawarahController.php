@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BadanMusyawarah;
 use Illuminate\Http\Request;
 
 class BadanMusyawarahController extends Controller
@@ -12,7 +13,9 @@ class BadanMusyawarahController extends Controller
      */
     public function index()
     {
-        return view('admin.badan-musyawarah.index');
+
+        $data = BadanMusyawarah::all();
+        return view('admin.badan-musyawarah.index', compact('data'));
     }
 
     /**
@@ -28,7 +31,24 @@ class BadanMusyawarahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $request->validate([
+        'nama' => 'required',
+        'jabatan' => 'required',
+        'foto' => 'nullable|image|max:2048',
+        ]);
+
+        $filename=null;
+        if($request->hasFile('foto')){
+            $filename = time().'_'.$request->file('foto')->extension();
+            $request->file('foto')->move(public_path('uploads/badan-musyawarah/'), $filename);
+        }
+
+        BadanMusyawarah::create([
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+            'foto' => $filename,
+        ]);
+        return redirect()->route('badan-musyawarah.index')->with('success', 'Data berhasil disimpan');
     }
 
     /**
@@ -44,7 +64,8 @@ class BadanMusyawarahController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = BadanMusyawarah::findOrFail($id);
+        return view('admin.badan-musyawarah.edit', compact('data'));
     }
 
     /**
@@ -52,7 +73,29 @@ class BadanMusyawarahController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        $data = BadanMusyawarah::findOrFail($id);
+
+        $request->validate([
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'foto' => 'nullable|image|max:2048',
+        ]);
+
+        $filename=$data->foto;
+        if($request->hasFile('foto')){
+            if($data->foto && file_exists(public_path('uploads/badan-musyawarah/'.$data->foto))){
+                unlink(public_path('uploads/badan-musyawarah/'.$data->foto));
+            }
+            $filename = time().'_'.$request->file('foto')->getClientOriginalName();
+            $request->file('foto')->move(public_path('uploads/badan-musyawarah/'), $filename);
+        }
+        $data->update([
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+            'foto' => $filename,
+        ]);
+        return redirect()->route('badan-musyawarah.index')->with('success', 'Data berhasil diupdate.');   
     }
 
     /**
@@ -60,6 +103,12 @@ class BadanMusyawarahController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = BadanMusyawarah::findOrFail($id);
+
+        if($data->foto && file_exists(public_path('uploads/badan-musyawarah/'.$data->foto))){
+            unlink(public_path('uploads/badan-musyawarah/'.$data->foto));
+        }
+        $data->delete();
+        return redirect()->route('badan-musyawarah.index')->with('success', 'Data berhasil dihapus.');
     }
 }
