@@ -7,6 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Komisi extends Model
 {
-    protected $table = 'komisis';
-    protected $fillable = ['kategori', 'judul', 'deskripsi', 'gambar'];
+    use HasFactory;
 }

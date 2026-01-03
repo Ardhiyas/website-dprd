@@ -86,6 +86,170 @@
         </div>
     </section><!-- /About Section -->
 
+<!-- Tabs Section -->
+    <section id="tabs" class="tabs section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Fraksi</h2>
+            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        </div><!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <ul class="nav nav-tabs flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active show" data-bs-toggle="tab" href="#tabs-tab-1">PKB</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-2">GOLKAR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-3">PDIP MAPAN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-4">GERINDRA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-5">NASDEM</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-6">DEMOKRAT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-7">PKS</a>
+                        </li>
+                      </ul>
+                </div>
+                <div class="col-lg-9 mt-4 mt-lg-0">
+                    <div class="tab-content">
+                        <div class="tab-pane active show" id="tabs-tab-1">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3>PKB(PARTAI KEBANGKITAN BANGSA)</h3>
+                                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente
+                                        dila parde sonata raqer a videna mareta paulona marka</p>
+                                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint.
+                                        Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est
+                                        repellat minima eveniet eius et quis magni nihil. Consequatur dolorem
+                                        quaerat quos qui similique accusamus nostrum rem vero</p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="{{ asset('dist') }}/assets/img/departments-1.jpg" alt=""
+                                        class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-tab-2">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3>GOLKAR</h3>
+                                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente
+                                        dila parde sonata raqer a videna mareta paulona marka</p>
+                                    <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et
+                                        reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et
+                                        velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto
+                                        madirna desera vafle de nideran pal</p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="{{ asset('dist') }}/assets/img/departments-2.jpg" alt=""
+                                        class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-tab-3">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3>PDIP MAPAN</h3>
+                                    <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non
+                                        enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat
+                                        perferendis aut</p>
+                                    <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis
+                                        quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima
+                                        molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam.
+                                        Soluta et harum voluptatem optio quae</p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="{{ asset('dist') }}/assets/img/departments-3.jpg" alt=""
+                                        class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-tab-4">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3>GERINDRA</h3>
+                                    <p class="fst-italic">Totam aperiam accusamus. Repellat consequuntur iure
+                                        voluptas iure porro quis delectus</p>
+                                    <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam
+                                        necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in
+                                        consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam
+                                        quia a laborum inventore</p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="{{ asset('dist') }}/assets/img/departments-4.jpg" alt=""
+                                        class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-tab-5">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3>NASDEM</h3>
+                                    <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro
+                                        quia.</p>
+                                    <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis
+                                        recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui
+                                        quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="{{ asset('dist') }}/assets/img/departments-5.jpg" alt=""
+                                        class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-tab-6">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3>DEMOKRAT</h3>
+                                    <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro
+                                        quia.</p>
+                                    <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis
+                                        recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui
+                                        quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="{{ asset('dist') }}/assets/img/departments-5.jpg" alt=""
+                                        class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-tab-7">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3>PKS</h3>
+                                    <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro
+                                        quia.</p>
+                                    <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis
+                                        recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui
+                                        quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="{{ asset('dist') }}/assets/img/departments-5.jpg" alt=""
+                                        class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section><!-- /Tabs Section -->
+
     <!-- Contact Section -->
         <section id="contact" class="contact section">
 
@@ -109,7 +273,7 @@
                     <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
                       <i class="bi bi-geo-alt"></i>
                       <h3>Address</h3>
-                      <p>A108 Adam Street, New York, NY 535022</p>
+                      <p>Jalan Alun-Alun Timur No. 29 Ponorogo</p>
                     </div>
                   </div><!-- End Info Item -->
 
@@ -117,7 +281,7 @@
                     <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
                       <i class="bi bi-telephone"></i>
                       <h3>Call Us</h3>
-                      <p>+1 5589 55488 55</p>
+                      <p>0352483864</p>
                     </div>
                   </div><!-- End Info Item -->
 
@@ -125,7 +289,7 @@
                     <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
                       <i class="bi bi-envelope"></i>
                       <h3>Email Us</h3>
-                      <p>info@example.com</p>
+                      <p>dprdponorogo03@gmail.com</p>
                     </div>
                   </div><!-- End Info Item -->
 
