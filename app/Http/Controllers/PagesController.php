@@ -17,6 +17,10 @@ use App\Models\pimpinan;
 use App\Models\fraksiPembangunan;
 use App\Models\FraksiPkb;
 use App\Models\Gallery;
+use App\Models\KomisiA;
+use App\Models\KomisiB;
+use App\Models\KomisiC;
+use App\Models\KomisiD;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -40,15 +44,31 @@ class PagesController extends Controller
 
     public function komisi()
     {
-            // Ambil semua data komisi dan urutkan berdasarkan kategori (A-D)
-        $all_data = \App\Models\Komisi::orderBy('kategori', 'asc')->get();
-
-        // Kelompokkan data berdasarkan kategori agar mudah di-looping di Blade
-        // Ini akan memisahkan mana yang Info dan mana yang Anggota otomatis
-        $data_komisi = $all_data->groupBy('kategori');
-
-        return view('pages.komisi', compact('data_komisi'));
+        $data = komisi::all();
+        return view('pages.komisi', compact('data'));
     }
+
+    public function komisiA()
+    {
+        $data = KomisiA::all();
+        return view('pages.komisi-a', compact('data'));
+    }
+    public function komisiB()
+    {
+        $data = KomisiB::all();
+        return view('pages.komisi-b', compact('data'));
+    }
+    public function komisiC()
+    {
+        $data = KomisiC::all();
+        return view('pages.komisi-c', compact('data'));
+    }
+    public function komisiD()
+    {
+        $data = KomisiD::all();
+        return view('pages.komisi-d', compact('data'));
+    }
+
     public function fraksiPkb()
     {
         $fraksiData = FraksiPkb::all();

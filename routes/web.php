@@ -17,6 +17,10 @@ use App\Http\Controllers\Admin\FraksiPkbController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\KomisiController;
 use App\Http\Controllers\Admin\PimpinanController;
+use App\Http\Controllers\KomisiAControlller;
+use App\Http\Controllers\KomisiBControlller;
+use App\Http\Controllers\KomisiCControlller;
+use App\Http\Controllers\KomisiDControlller;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +43,11 @@ Route::get('/anggota-dprd', [PagesController::class, 'anggotaDprd'])->name('angg
 
 // Rute Publik Komisi dan Alat Kelengkapan
 Route::get('/komisi', [PagesController::class, 'komisi'])->name('komisi');
+
+Route::get('/komisi-a', [PagesController::class, 'komisiA'])->name('komisi-a');
+Route::get('/komisi-b', [PagesController::class, 'komisiB'])->name('komisi-b');
+Route::get('/komisi-c', [PagesController::class, 'komisiC'])->name('komisi-c');
+Route::get('/komisi-d', [PagesController::class, 'komisiD'])->name('komisi-d');
 
 // Rute Publik Fraksi
 Route::get('/fraksi-pkb', [PagesController::class, 'fraksiPkb'])->name('fraksi-pkb');
@@ -82,6 +91,10 @@ Route::prefix('admin')->group(function () {
     Route::resource('komisi', KomisiController::class)->only(['index', 'store', 'destroy']);
     // Sesuaikan juga nama route manualnya
     Route::post('komisi/store-info', [KomisiController::class, 'store_info'])->name('komisi.store_info');
+    Route::resource('/komisi-a', KomisiAControlller::class);
+    Route::resource('/komisi-b', KomisiBControlller::class);
+    Route::resource('/komisi-c', KomisiCControlller::class);
+    Route::resource('/komisi-d', KomisiDControlller::class);
 
     // Rute Resource Fraksi (Disederhanakan, dihapus Route::get redundan)
     Route::resource('/pkb', FraksiPkbController::class);

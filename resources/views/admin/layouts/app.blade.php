@@ -49,7 +49,17 @@
                             <a href="{{ route('anggota.index') }}" class="dropdown-item">Anggota</a>
                         </div>
                     </div>
-                    <a href="{{ route('komisi.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Komisi</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
+                                class="fa fa-laptop me-2"></i>Komisi</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{{ route('komisi-a.index') }}" class="dropdown-item">Komisi A</a>
+                            <a href="{{ route('komisi-b.index') }}" class="dropdown-item">Komisi B</a>
+                            <a href="{{ route('komisi-c.index') }}" class="dropdown-item">Komisi C</a>
+                            <a href="{{ route('komisi-d.index') }}" class="dropdown-item">Komisi D</a>
+                            
+                            </div>
+                    </div>
                     <a href="{{ route('gallery.index') }}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Gallery</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i

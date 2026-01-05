@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KomisiFoto extends Model
+class KomisiC extends Model
 {
-    use HasFactory;
+    protected $table = 'komisi_cs';
+    protected $fillable = ['nama', 'jabatan', 'foto'];
 }

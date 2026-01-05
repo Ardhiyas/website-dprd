@@ -40,9 +40,27 @@ class navlink extends Component
             ],
             [
                 'label' => 'Komisi',
-                'route' => 'komisi',
-                'isActive' => request()->routeIs('komisi'),
-                'isDropdown' => false
+                'route' => null,
+                'isActive' => request()->routeIs('komisi-a', 'komisi-b', 'komisi-c', 'komisi-d'),
+                'isDropdown' => true,
+                'dropdown' => [
+                    [
+                        'label' => 'Komisi A',
+                        'route' => 'komisi-a',
+                    ],
+                    [
+                        'label' => 'Komisi B',
+                        'route' => 'komisi-b',
+                    ],
+                    [
+                        'label' => 'Komisi C',
+                        'route' => 'komisi-c',
+                    ],
+                    [
+                        'label' => 'Komisi D',
+                        'route' => 'komisi-d',
+                    ],
+                ]
             ],
             [
                 'label' => 'Fraksi',
