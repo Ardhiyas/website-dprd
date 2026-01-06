@@ -25,8 +25,7 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="img/user.jpg" alt=""
-                            style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                         <div
                             class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
                         </div>
@@ -40,7 +39,7 @@
 
                     <a href="{{ route('admin.dashboard') }}" class="nav-item nav-link"><i
                             class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                                 class="fa fa-laptop me-2"></i>Dewan</a>
@@ -49,49 +48,54 @@
                             <a href="{{ route('anggota.index') }}" class="dropdown-item">Anggota</a>
                         </div>
                     </div>
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                                class="fa fa-laptop me-2"></i>Komisi</a>
+                                class="fa fa-users me-2"></i>Fraksi</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{{ route('pkb.index') }}" class="dropdown-item">Fraksi PKB</a>
+                            <a href="{{ route('golkar.index') }}" class="dropdown-item">Fraksi GOLKAR</a>
+                            <a href="{{ route('pdip.index') }}" class="dropdown-item">Fraksi PDIP</a>
+                            <a href="{{ route('gerindra.index') }}" class="dropdown-item">Fraksi GERINDRA</a>
+                            <a href="{{ route('nasdem.index') }}" class="dropdown-item">Fraksi NASDEM</a>
+                            <a href="{{ route('demokrat.index') }}" class="dropdown-item">Fraksi DEMOKRAT</a>
+                            <a href="{{ route('pembangunan.index') }}" class="dropdown-item">Fraksi Pembangunan</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
+                                class="fa fa-university me-2"></i>Komisi</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{ route('komisi-a.index') }}" class="dropdown-item">Komisi A</a>
                             <a href="{{ route('komisi-b.index') }}" class="dropdown-item">Komisi B</a>
                             <a href="{{ route('komisi-c.index') }}" class="dropdown-item">Komisi C</a>
                             <a href="{{ route('komisi-d.index') }}" class="dropdown-item">Komisi D</a>
-                            
-                            </div>
+                        </div>
                     </div>
-                    <a href="{{ route('gallery.index') }}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Gallery</a>
+
+                    <a href="{{ route('gallery.index') }}" class="nav-item nav-link"><i
+                            class="fa fa-table me-2"></i>Gallery</a>
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                                class="far fa-file-alt me-2"></i>Fraksi</a>
+                                class="far fa-file-alt me-2"></i>Badan</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{{ route('pkb.index') }}" class="dropdown-item">Fraksi PKB</a>
-                            <a href="{{ route('golkar.index') }}" class="dropdown-item">Fraksi Golkar</a>
-                            <a href="{{ route('pdip.index') }}"class="dropdown-item">Fraksi PDIP Mapan</a>
-                            <a href="{{ route('gerindra.index') }}" class="dropdown-item">Fraksi Gerindra</a>
-                            <a href="{{ route('nasdem.index') }}" class="dropdown-item">Fraksi Nasdem</a>
-                            <a href="{{ route('demokrat.index') }}" class="dropdown-item">Fraksi Demokrat</a>
-                            <a href="{{ route('pembangunan.index') }}" class="dropdown-item">Fraksi Pembangunan Keadilan Sejahtera</a>
+                            <a href="{{ route('badan-anggaran.index') }}" class="dropdown-item">Badan Anggaran</a>
+                            <a href="{{ route('badan-musyawarah.index') }}" class="dropdown-item">Badan Musyawarah</a>
+                            <a href="{{ route('badan-kehormatan.index') }}" class="dropdown-item">Badan Kehormatan</a>
+                            <a href="{{ route('badan-pembentukan.index') }}" class="dropdown-item">Badan Pembentukan
+                                Peraturan Daerah</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                            class="far fa-file-alt me-2"></i>Badan</a>
-                    <div class="dropdown-menu bg-transparent border-0">
-                        <a href="{{ route('badan-anggaran.index') }}" class="dropdown-item">Badan Anggaran</a>
-                        <a href="{{ route('badan-musyawarah.index') }}" class="dropdown-item">Badan Musyawarah</a>
-                        <a href="{{ route('badan-kehormatan.index') }}" class="dropdown-item">Badan Kehormatan</a>
-                        <a href="{{ route('badan-pembentukan.index') }}" class="dropdown-item">Badan Pembentukan Peraturan Daerah</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
+                                class="far fa-file-alt me-2"></i>Sekretariat</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{{ route('organisasi.index') }}" class="dropdown-item">Organisasi</a>
+                            <a href="{{ route('sakip.index') }}" class="dropdown-item">SAKIP</a>
+                        </div>
                     </div>
-                </div>
-                    <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                            class="far fa-file-alt me-2"></i>Sekretariat</a>
-                    <div class="dropdown-menu bg-transparent border-0">
-                        <a href="{{ route('organisasi.index') }}" class="dropdown-item">Organisasi</a>
-                        <a href="{{ route('sakip.index') }}" class="dropdown-item">SAKIP</a>
-                    </div>
-                </div>
                 </div>
             </nav>
         </div>
@@ -117,8 +121,7 @@
                             <i class="fa fa-envelope me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Message</span>
                         </a>
-                        <div
-                            class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
                                     <img class="rounded-circle" src="img/user.jpg" alt=""
@@ -160,8 +163,7 @@
                             <i class="fa fa-bell me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Notificatin</span>
                         </a>
-                        <div
-                            class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <h6 class="fw-normal mb-0">Profile updated</h6>
                                 <small>15 minutes ago</small>
@@ -186,8 +188,7 @@
                                 style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">John Doe</span>
                         </a>
-                        <div
-                            class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
                             <a href="{{ route('admin.logout') }}" class="dropdown-item">Log Out</a>
@@ -198,7 +199,7 @@
             <!-- Navbar End -->
 
 
-           @yield('content')
+            @yield('content')
 
 
             <!-- Footer Start -->
@@ -225,7 +226,7 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
-<x-admin.script />
+    <x-admin.script />
 </body>
 
 </html>

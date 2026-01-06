@@ -8,31 +8,31 @@
             <div class="carousel-item active">
                 <img src="{{ asset('dist') }}/assets/img/hero-carousel/hero-carousel-1.jpg" alt="">
                 <div class="container">
-                    <h2>Welcome to Medicio</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <a href="#about" class="btn-get-started">Read More</a>
+                    <h2>Selamat Datang di DPRD Ponorogo</h2>
+                    <p>Dewan Perwakilan Rakyat Daerah Kabupaten Ponorogo sebagai wakil rakyat yang menjalankan fungsi
+                        legislasi, anggaran, dan pengawasan untuk mewujudkan Ponorogo yang maju, sejahtera, dan berkeadilan.
+                    </p>
+                    <a href="#about" class="btn-get-started">Selengkapnya</a>
                 </div>
             </div><!-- End Carousel Item -->
             <div class="carousel-item">
                 <img src="{{ asset('dist') }}/assets/img/hero-carousel/hero-carousel-2.jpg" alt="">
                 <div class="container">
-                    <h2>At vero eos et accusamus</h2>
-                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id
-                        quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-                        Temporibus autem quibusdam et aut officiis debitis aut.</p>
-                    <a href="#about" class="btn-get-started">Read More</a>
+                    <h2>Melayani Aspirasi Rakyat</h2>
+                    <p>DPRD Ponorogo berkomitmen mendengarkan suara masyarakat melalui berbagai kanal aspirasi, menyusun
+                        peraturan daerah yang berpihak pada rakyat, dan mengawasi pelaksanaan pembangunan demi kesejahteraan
+                        bersama.</p>
+                    <a href="#about" class="btn-get-started">Layanan Masyarakat</a>
                 </div>
             </div><!-- End Carousel Item -->
 
             <div class="carousel-item">
                 <img src="{{ asset('dist') }}/assets/img/hero-carousel/hero-carousel-3.jpg" alt="">
                 <div class="container">
-                    <h2>Temporibus autem quibusdam</h2>
-                    <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur
-                        aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
-                        nesciunt omnis iste natus error sit voluptatem accusantium.</p>
+                    <h2>Melestarikan Budaya Lokal</h2>
+                    <p>Sebagai representasi masyarakat Ponorogo yang kaya akan budaya, kami berkomitmen melestarikan dan
+                        mengembangkan warisan budaya seperti Reog Ponorogo serta memajukan potensi lokal menuju kemandirian
+                        daerah.</p>
                     <a href="#about" class="btn-get-started">Read More</a>
                 </div>
             </div><!-- End Carousel Item -->
@@ -50,8 +50,8 @@
     <section id="about" class="about section">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>About Us<br></h2>
-            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            <h2>Tentang DPRD Ponorogo<br></h2>
+            <p>Mengenal lebih dekat tugas, fungsi, dan peran Dewan Perwakilan Rakyat Daerah Kabupaten Ponorogo</p>
         </div><!-- End Section Title -->
         <div class="container">
             <div class="row gy-4">
@@ -60,39 +60,139 @@
                     <a href="https://youtu.be/yKbUQkkA-ks?si=2jk7nqbbuc89bJrk" class="glightbox pulsating-play-btn"></a>
                 </div>
                 <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                    <h3>DPRD Ponorogo: Wadah Aspirasi Rakyat, Pengawal Pembangunan Daerah</h3>
                     <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua.
+                        Sebagai representasi masyarakat Kabupaten Ponorogo, DPRD berkomitmen menjalankan fungsi
+                        konstitusional untuk mewujudkan pemerintahan yang demokratis, transparan, dan berpihak pada
+                        kesejahteraan rakyat.
                     </p>
                     <ul>
-                        <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat.</span></li>
-                        <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in
-                                voluptate velit.</span></li>
-                        <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
-                                storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+                        <li><i class="bi bi-check2-all"></i> <span>Fungsi Legislasi:</strong> Menyusun dan menetapkan
+                                Peraturan Daerah (Perda) yang berpihak pada kepentingan masyarakat Ponorogo</span></li>
+                        <li><i class="bi bi-check2-all"></i> <span>Fungsi Anggaran:</strong> Menetapkan Anggaran
+                                Pendapatan dan Belanja Daerah (APBD) secara akuntabel dan transparan</span></li>
+                        <li><i class="bi bi-check2-all"></i> <span>Fungsi Pengawasan:</strong> Mengawasi pelaksanaan
+                                Perda dan kebijakan pemerintah daerah demi efektivitas pembangunan</span></li>
                     </ul>
                     <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident
+                        DPRD Ponorogo terdiri dari perwakilan partai politik yang terpilih melalui pemilihan umum,
+                        bekerja secara kolektif-kolegial untuk menyerap, menampung, dan menindaklanjuti aspirasi
+                        masyarakat. Dengan semangat "Ngesti Wiyata, Amrih Rahayu", kami bertekad membangun Ponorogo
+                        yang maju, mandiri, dan berbudaya.
                     </p>
                 </div>
             </div>
         </div>
     </section><!-- /About Section -->
 
-<!-- Tabs Section -->
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Layanan Publik DPRD</h2>
+            <p>Berbagai layanan yang disediakan DPRD untuk masyarakat dalam rangka menjalankan fungsi legislasi, anggaran,
+                dan pengawasan</p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-item  position-relative">
+                        <div class="icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <a href="#" class="stretched-link">
+                            <h3>Penampungan Aspirasi</h3>
+                        </a>
+                        <p>Melayani masyarakat dalam menyampaikan aspirasi, keluhan, dan pengaduan melalui berbagai kanal
+                            resmi DPRD baik langsung, tertulis, maupun online.</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <a href="#" class="stretched-link">
+                            <h3>Konsultasi Hukum Daerah</h3>
+                        </a>
+                        <p>Memberikan informasi dan konsultasi mengenai Peraturan Daerah (Perda) dan produk hukum daerah
+                            lainnya kepada masyarakat dan stakeholder.</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <a href="#" class="stretched-link">
+                            <h3>Kunjungan Kerja & Reses</h3>
+                        </a>
+                        <p>Anggota DPRD melakukan kunjungan kerja ke daerah pemilihan untuk menyerap aspirasi masyarakat
+                            secara langsung dan memantau pembangunan.</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="fas fa-search-dollar"></i>
+                        </div>
+                        <a href="#" class="stretched-link">
+                            <h3>Pengawasan APBD</h3>
+                        </a>
+                        <p>Melakukan pengawasan terhadap pelaksanaan Anggaran Pendapatan dan Belanja Daerah (APBD) untuk
+                            memastikan penggunaan anggaran yang efektif dan akuntabel.</p>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <a href="#" class="stretched-link">
+                            <h3>Dengar Pendapat Umum</h3>
+                        </a>
+                        <p>Menyelenggarakan forum dengar pendapat dengan masyarakat dan stakeholders dalam proses penyusunan
+                            kebijakan dan peraturan daerah.</p>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <a href="#" class="stretched-link">
+                            <h3>Informasi Publik</h3>
+                        </a>
+                        <p>Menyediakan akses informasi publik seperti Perda, APBD, risalah rapat, dan laporan kinerja DPRD
+                            sesuai dengan prinsip keterbukaan informasi publik.</p>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div><!-- End Service Item -->
+
+            </div>
+
+        </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Fraksi Section -->
     <section id="tabs" class="tabs section">
 
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
             <h2>Fraksi</h2>
-            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            <p>Fraksi-fraksi yang ada di DPRD Kabupaten Ponorogo</p>
         </div><!-- End Section Title -->
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -100,237 +200,261 @@
             <div class="row">
                 <div class="col-lg-3">
                     <ul class="nav nav-tabs flex-column">
+                        @foreach($fraksi as $index => $item)
                         <li class="nav-item">
-                            <a class="nav-link active show" data-bs-toggle="tab" href="#tabs-tab-1">PKB</a>
+                            <a class="nav-link {{ $index == 0 ? 'active show' : '' }}" data-bs-toggle="tab" href="#tabs-tab-{{ $item->id }}">
+                                {{ $item->nama }}
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-2">GOLKAR</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-3">PDIP MAPAN</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-4">GERINDRA</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-5">NASDEM</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-6">DEMOKRAT</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-7">PKS</a>
-                        </li>
-                      </ul>
+                        @endforeach
+                    </ul>
                 </div>
                 <div class="col-lg-9 mt-4 mt-lg-0">
                     <div class="tab-content">
-                        <div class="tab-pane active show" id="tabs-tab-1">
+                        @foreach($fraksi as $index => $item)
+                        <div class="tab-pane {{ $index == 0 ? 'active show' : '' }}" id="tabs-tab-{{ $item->id }}">
                             <div class="row">
                                 <div class="col-lg-8 details order-2 order-lg-1">
-                                    <h3>PKB(PARTAI KEBANGKITAN BANGSA)</h3>
-                                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente
-                                        dila parde sonata raqer a videna mareta paulona marka</p>
-                                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint.
-                                        Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est
-                                        repellat minima eveniet eius et quis magni nihil. Consequatur dolorem
-                                        quaerat quos qui similique accusamus nostrum rem vero</p>
+                                    <h3>{{ $item->nama }}</h3>
+                                    <div class="mt-3">
+                                        {!! $item->deskripsi !!}
+                                    </div>
                                 </div>
                                 <div class="col-lg-4 text-center order-1 order-lg-2">
-                                    <img src="{{ asset('dist') }}/assets/img/departments-1.jpg" alt=""
-                                        class="img-fluid">
+                                    @if($item->logo)
+                                        <img src="{{ asset('uploads/fraksi/' . $item->logo) }}" alt="{{ $item->nama }}" class="img-fluid">
+                                    @else
+                                        <img src="{{ asset('dist') }}/assets/img/departments-1.jpg" alt="Default Logo" class="img-fluid">
+                                    @endif
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane" id="tabs-tab-2">
-                            <div class="row">
-                                <div class="col-lg-8 details order-2 order-lg-1">
-                                    <h3>GOLKAR</h3>
-                                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente
-                                        dila parde sonata raqer a videna mareta paulona marka</p>
-                                    <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et
-                                        reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et
-                                        velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto
-                                        madirna desera vafle de nideran pal</p>
-                                </div>
-                                <div class="col-lg-4 text-center order-1 order-lg-2">
-                                    <img src="{{ asset('dist') }}/assets/img/departments-2.jpg" alt=""
-                                        class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-tab-3">
-                            <div class="row">
-                                <div class="col-lg-8 details order-2 order-lg-1">
-                                    <h3>PDIP MAPAN</h3>
-                                    <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non
-                                        enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat
-                                        perferendis aut</p>
-                                    <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis
-                                        quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima
-                                        molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam.
-                                        Soluta et harum voluptatem optio quae</p>
-                                </div>
-                                <div class="col-lg-4 text-center order-1 order-lg-2">
-                                    <img src="{{ asset('dist') }}/assets/img/departments-3.jpg" alt=""
-                                        class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-tab-4">
-                            <div class="row">
-                                <div class="col-lg-8 details order-2 order-lg-1">
-                                    <h3>GERINDRA</h3>
-                                    <p class="fst-italic">Totam aperiam accusamus. Repellat consequuntur iure
-                                        voluptas iure porro quis delectus</p>
-                                    <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam
-                                        necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in
-                                        consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam
-                                        quia a laborum inventore</p>
-                                </div>
-                                <div class="col-lg-4 text-center order-1 order-lg-2">
-                                    <img src="{{ asset('dist') }}/assets/img/departments-4.jpg" alt=""
-                                        class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-tab-5">
-                            <div class="row">
-                                <div class="col-lg-8 details order-2 order-lg-1">
-                                    <h3>NASDEM</h3>
-                                    <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro
-                                        quia.</p>
-                                    <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis
-                                        recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui
-                                        quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
-                                </div>
-                                <div class="col-lg-4 text-center order-1 order-lg-2">
-                                    <img src="{{ asset('dist') }}/assets/img/departments-5.jpg" alt=""
-                                        class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-tab-6">
-                            <div class="row">
-                                <div class="col-lg-8 details order-2 order-lg-1">
-                                    <h3>DEMOKRAT</h3>
-                                    <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro
-                                        quia.</p>
-                                    <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis
-                                        recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui
-                                        quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
-                                </div>
-                                <div class="col-lg-4 text-center order-1 order-lg-2">
-                                    <img src="{{ asset('dist') }}/assets/img/departments-5.jpg" alt=""
-                                        class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-tab-7">
-                            <div class="row">
-                                <div class="col-lg-8 details order-2 order-lg-1">
-                                    <h3>PKS</h3>
-                                    <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro
-                                        quia.</p>
-                                    <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis
-                                        recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui
-                                        quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
-                                </div>
-                                <div class="col-lg-4 text-center order-1 order-lg-2">
-                                    <img src="{{ asset('dist') }}/assets/img/departments-5.jpg" alt=""
-                                        class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
 
         </div>
 
-    </section><!-- /Tabs Section -->
+    </section><!-- /Fraksi Section -->
 
-    <!-- Contact Section -->
-        <section id="contact" class="contact section">
+    <!-- Faq Section -->
+    <section id="faq" class="faq section light-background">
 
-          <!-- Section Title -->
-          <div class="container section-title" data-aos="fade-up">
-            <h2>Contact</h2>
-            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-          </div><!-- End Section Title -->
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Pertanyaan yang Sering Diajukan</h2>
+            <p>Temukan jawaban atas pertanyaan umum seputar tugas, fungsi, dan layanan DPRD Provinsi kami</p>
+        </div><!-- End Section Title -->
 
-          <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
-            <iframe style="border:0; width: 100%; height: 370px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.218888625371!2d111.4607947!3d-7.8713702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e799f8534ac9527%3A0x133720168b40cb33!2sDPRD%20Kabupaten%20Ponorogo!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div><!-- End Google Maps -->
+        <div class="container">
 
-          <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row justify-content-center">
 
-            <div class="row gy-4">
-              <div class="col-lg-6 ">
-                <div class="row gy-4">
+                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
 
-                  <div class="col-lg-12">
-                    <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
-                      <i class="bi bi-geo-alt"></i>
-                      <h3>Address</h3>
-                      <p>Jalan Alun-Alun Timur No. 29 Ponorogo</p>
+                    <div class="faq-container">
+
+                        <div class="faq-item">
+                            <h3>Apa saja tugas dan wewenang DPRD?</h3>
+                            <div class="faq-content">
+                                <p>DPRD memiliki tiga fungsi utama: <strong>Fungsi Legislasi</strong> (membentuk Peraturan
+                                    Daerah), <strong>Fungsi Anggaran</strong> (menetapkan APBD), dan <strong>Fungsi
+                                        Pengawasan</strong> (mengawasi pelaksanaan Perda dan APBD). DPRD juga memiliki tugas
+                                    membentuk dan menetapkan Perda bersama Gubernur, serta menampung dan menindaklanjuti
+                                    aspirasi masyarakat.</p>
+                            </div>
+                            <i class="faq-toggle bi bi-chevron-right"></i>
+                        </div><!-- End Faq item-->
+
+                        <div class="faq-item">
+                            <h3>Bagaimana cara menyampaikan aspirasi atau pengaduan ke DPRD?</h3>
+                            <div class="faq-content">
+                                <p>Masyarakat dapat menyampaikan aspirasi melalui beberapa cara: (1) <strong>Kunjungan
+                                        langsung</strong> ke Sekretariat DPRD pada jam kerja, (2) <strong>Surat
+                                        tertulis</strong> yang ditujukan kepada Pimpinan DPRD atau anggota komisi terkait,
+                                    (3) <strong>Melalui website resmi</strong> pada menu "Aspirasi Masyarakat", atau (4)
+                                    <strong>Media sosial resmi</strong> DPRD. Setiap pengaduan akan didokumentasikan dan
+                                    ditindaklanjuti sesuai prosedur.
+                                </p>
+                            </div>
+                            <i class="faq-toggle bi bi-chevron-right"></i>
+                        </div><!-- End Faq item-->
+
+                        <div class="faq-item">
+                            <h3>Apa perbedaan tugas antara Komisi A, B, C, dan D di DPRD?</h3>
+                            <div class="faq-content">
+                                <p>Setiap komisi membidangi urusan berbeda: <strong>Komisi A</strong> menangani
+                                    Pemerintahan, Hukum, dan Politik. <strong>Komisi B</strong> membidangi Perekonomian dan
+                                    Keuangan Daerah. <strong>Komisi C</strong> fokus pada Pembangunan Infrastruktur dan
+                                    Lingkungan Hidup. Sedangkan <strong>Komisi D</strong> menangani urusan Kesejahteraan
+                                    Rakyat (Pendidikan, Kesehatan, Sosial). Pembagian ini memastikan pengawasan yang lebih
+                                    spesifik dan mendalam terhadap setiap bidang pemerintahan.</p>
+                            </div>
+                            <i class="faq-toggle bi bi-chevron-right"></i>
+                        </div><!-- End Faq item-->
+
+                        <div class="faq-item">
+                            <h3>Bagaimana proses pembentukan suatu Peraturan Daerah (Perda)?</h3>
+                            <div class="faq-content">
+                                <p>Proses pembentukan Perda melalui tahapan: (1) <strong>Perencanaan</strong> penyusunan
+                                    Program Legislasi Daerah (Prolegda), (2) <strong>Penyusunan Rancangan Perda</strong>
+                                    oleh eksekutif atau DPRD, (3) <strong>Pembahasan</strong> di komisi dan alat kelengkapan
+                                    DPRD, (4) <strong>Persetujuan bersama</strong> antara DPRD dan Gubernur, (5)
+                                    <strong>Pengundangan</strong> oleh Gubernur. Masyarakat dapat memberikan masukan melalui
+                                    mekanisme publik hearing (dengar pendapat).
+                                </p>
+                            </div>
+                            <i class="faq-toggle bi bi-chevron-right"></i>
+                        </div><!-- End Faq item-->
+
+                        <div class="faq-item">
+                            <h3>Kapan saja rapat-rapat DPRD dilaksanakan dan dapatkah publik hadir?</h3>
+                            <div class="faq-content">
+                                <p>Rapat DPRD terdiri dari Rapat Paripurna, Rapat Komisi, Ralat Alat Kelengkapan, dan Rapat
+                                    Fraksi. <strong>Jadwal rapat</strong> dapat dilihat di website resmi atau papan
+                                    pengumuman Sekretariat DPRD. <strong>Rapat Paripurna umumnya terbuka untuk umum</strong>
+                                    (kecuali rapat tertutup untuk hal khusus). Masyarakat yang ingin menghadiri diharapkan
+                                    mendaftar terlebih dahulu melalui Sekretariat DPRD dan mematuhi tata tertib yang
+                                    berlaku.</p>
+                            </div>
+                            <i class="faq-toggle bi bi-chevron-right"></i>
+                        </div><!-- End Faq item-->
+
+                        <div class="faq-item">
+                            <h3>Bagaimana cara mengakses dokumen publik seperti APBD, Perda, atau Nota Kesepakatan?</h3>
+                            <div class="faq-content">
+                                <p>Semua <strong>dokumen publik</strong> DPRD (Perda, APBD, Risalah Rapat, Laporan Kinerja)
+                                    dapat diakses secara terbuka melalui: (1) <strong>Website resmi DPRD</strong> pada menu
+                                    "Dokumen Publik" atau "Perpustakaan Digital", (2) <strong>Layanan Perpustakaan &
+                                        Arsip</strong> di Sekretariat DPRD pada jam kerja, (3) <strong>Permohonan
+                                        informasi</strong> berdasarkan Undang-Undang Keterbukaan Informasi Publik (UU KIP).
+                                </p>
+                            </div>
+                            <i class="faq-toggle bi bi-chevron-right"></i>
+                        </div><!-- End Faq item-->
+
                     </div>
-                  </div><!-- End Info Item -->
 
-                  <div class="col-md-6">
-                    <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
-                      <i class="bi bi-telephone"></i>
-                      <h3>Call Us</h3>
-                      <p>0352483864</p>
-                    </div>
-                  </div><!-- End Info Item -->
-
-                  <div class="col-md-6">
-                    <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
-                      <i class="bi bi-envelope"></i>
-                      <h3>Email Us</h3>
-                      <p>dprdponorogo03@gmail.com</p>
-                    </div>
-                  </div><!-- End Info Item -->
-
-                </div>
-              </div>
-
-              <div class="col-lg-6">
-                <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
-                  <div class="row gy-4">
-
-                    <div class="col-md-6">
-                      <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                    </div>
-
-                    <div class="col-md-6 ">
-                      <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                    </div>
-
-                    <div class="col-md-12">
-                      <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                    </div>
-
-                    <div class="col-md-12">
-                      <textarea class="form-control" name="message" rows="4" placeholder="Message" required=""></textarea>
-                    </div>
-
-                    <div class="col-md-12 text-center">
-                      <div class="loading">Loading</div>
-                      <div class="error-message"></div>
-                      <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                      <button type="submit">Send Message</button>
-                    </div>
-
-                  </div>
-                </form>
-              </div><!-- End Contact Form -->
+                </div><!-- End Faq Column-->
 
             </div>
 
-          </div>
+        </div>
 
-        </section><!-- /Contact Section -->
+    </section><!-- /Faq Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Contact</h2>
+            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        </div><!-- End Section Title -->
+
+        <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+            <iframe style="border:0; width: 100%; height: 370px;"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.218888625371!2d111.4607947!3d-7.8713702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e799f8534ac9527%3A0x133720168b40cb33!2sDPRD%20Kabupaten%20Ponorogo!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid"
+                frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div><!-- End Google Maps -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row gy-4">
+                <div class="col-lg-6 ">
+                    <div class="row gy-4">
+
+                        <div class="col-lg-12">
+                            <div class="info-item d-flex flex-column justify-content-center align-items-center"
+                                data-aos="fade-up" data-aos-delay="200">
+                                <i class="bi bi-geo-alt"></i>
+                                <h3>Address</h3>
+                                <p>Jalan Alun-Alun Timur No. 29 Ponorogo</p>
+                            </div>
+                        </div><!-- End Info Item -->
+
+                        <div class="col-md-6">
+                            <div class="info-item d-flex flex-column justify-content-center align-items-center"
+                                data-aos="fade-up" data-aos-delay="300">
+                                <i class="bi bi-telephone"></i>
+                                <h3>Call Us</h3>
+                                <p>0352483864</p>
+                            </div>
+                        </div><!-- End Info Item -->
+
+                        <div class="col-md-6">
+                            <div class="info-item d-flex flex-column justify-content-center align-items-center"
+                                data-aos="fade-up" data-aos-delay="400">
+                                <i class="bi bi-envelope"></i>
+                                <h3>Email Us</h3>
+                                <p>dprdponorogo03@gmail.com</p>
+                            </div>
+                        </div><!-- End Info Item -->
+
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <form action="{{ route('contact.send') }}" method="post" data-aos="fade-up" data-aos-delay="500">
+                        @csrf
+                        <div class="row gy-4">
+
+                            <div class="col-md-6">
+                                <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                            </div>
+
+                            <div class="col-md-6 ">
+                                <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                            </div>
+
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                            </div>
+
+                            <div class="col-md-12">
+                                <textarea class="form-control" name="message" rows="4" placeholder="Message"
+                                    required=""></textarea>
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary mt-3">Send Message</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div><!-- End Contact Form -->
+
+            </div>
+
+        </div>
+
+    </section><!-- /Contact Section -->
+    </section><!-- /Contact Section -->
+
+    {{-- SweetAlert2 JS --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: "{{ session('success') }}",
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK'
+                });
+            @endif
+
+            @if(session('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: "{{ session('error') }}",
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'Tutup'
+                });
+            @endif
+                                                        });
+    </script>
 @endsection

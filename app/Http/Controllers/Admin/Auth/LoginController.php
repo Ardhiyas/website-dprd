@@ -18,7 +18,7 @@ class LoginController extends Controller
         if (auth()->guard('web')->attempt($credentials)) {
             return redirect()->intended(route('admin.dashboard'));
         } else {
-            return redirect()->back()->withInput($request->only('email'));
+            return redirect()->back()->withInput($request->only('email'))->with('error', 'Email atau password salah.');
         }
     }
 

@@ -5,89 +5,96 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Komisi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class KomisiController extends Controller
 {
-    // Tambahkan "= null" agar parameter kategori tidak wajib diisi
-    public function index($kategori = null)
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        $data = \App\Models\Komisi::orderBy('kategori', 'asc')->get();
+        $data = Komisi::all();
         return view('admin.komisi.index', compact('data'));
     }
 
-    // Fungsi untuk menyimpan deskripsi komisi (Sesuai rencana Anda)
-    public function store_info(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        $request->validate([
-            'kategori' => 'required',
-            'deskripsi' => 'required'
-        ]);
-
-        // UpdateOrCreate: Jika data info komisi sudah ada maka update, jika belum maka buat baru
-        Komisi::updateOrCreate(
-            ['kategori' => $request->kategori, 'type' => 'info'],
-            [
-                'judul' => 'KOMISI ' . $request->kategori,
-                'deskripsi' => $request->deskripsi,
-                'gambar' => '-' // Kosongkan karena ini hanya data teks
-            ]
-        );
-
-        return back()->with('success', 'Deskripsi Komisi ' . $request->kategori . ' berhasil diperbarui.');
-    }
-    // File: app/Http/Controllers/PagesController.php
-
-    public function showKomisi($kategori)
-    {
-        $kategoriUpper = strtoupper($kategori);
-
-        // 1. Ambil deskripsi singkat (yang type-nya 'info')
-        $info = \App\Models\Komisi::where('kategori', $kategoriUpper)
-                ->where('type', 'info')
-                ->first();
-
-        // 2. Ambil semua foto anggota (yang type-nya 'anggota')
-        $galeri = \App\Models\Komisi::where('kategori', $kategoriUpper)
-                ->where('type', 'anggota')
-                ->get();
-
-        return view('pages.komisi', compact('info', 'galeri', 'kategoriUpper'));
+        return view('admin.komisi.create');
     }
 
-    // Fungsi untuk menyimpan foto anggota
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
         $request->validate([
-            'kategori' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'nama' => 'required|string|max:255',
+            'bidang' => 'nullable|string|max:255',
+            'deskripsi' => 'nullable|string',
         ]);
 
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
-            $filename = time() . '_anggota_' . strtolower($request->kategori) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads/komisi'), $filename);
+        Komisi::create([
+            'nama' => $request->nama,
+            'slug' => Str::slug($request->nama),
+            'bidang' => $request->bidang,
+            'deskripsi' => $request->deskripsi,
+        ]);
 
-            Komisi::create([
-                'kategori' => $request->kategori,
-                'judul' => 'Anggota Komisi ' . $request->kategori,
-                'deskripsi' => $request->deskripsi,
-                'gambar' => $filename,
-                'type' => 'anggota'
-            ]);
-
-            return back()->with('success', 'Foto anggota berhasil ditambahkan.');
-        }
+        return redirect()->route('komisi.index')->with('success', 'Komisi berhasil ditambahkan.');
     }
 
-    public function destroy($id)
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        $item = Komisi::findOrFail($id);
-        if ($item->gambar && $item->gambar != '-') {
-            $path = public_path('uploads/komisi/' . $item->gambar);
-            if (File::exists($path)) { File::delete($path); }
-        }
-        $item->delete();
-        return back()->with('success', 'Data berhasil dihapus.');
+        $komisi = Komisi::with('anggotas')->findOrFail($id);
+        return view('admin.komisi.show', compact('komisi'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        $data = Komisi::findOrFail($id);
+        return view('admin.komisi.edit', compact('data'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $data = Komisi::findOrFail($id);
+
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'bidang' => 'nullable|string|max:255',
+            'deskripsi' => 'nullable|string',
+        ]);
+
+        $data->update([
+            'nama' => $request->nama,
+            'slug' => Str::slug($request->nama),
+            'bidang' => $request->bidang,
+            'deskripsi' => $request->deskripsi,
+        ]);
+
+        return redirect()->route('komisi.index')->with('success', 'Komisi berhasil diperbarui.');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $data = Komisi::findOrFail($id);
+        $data->delete();
+        return redirect()->route('komisi.index')->with('success', 'Komisi berhasil dihapus.');
     }
 }

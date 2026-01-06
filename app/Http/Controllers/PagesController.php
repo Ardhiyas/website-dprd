@@ -7,16 +7,17 @@ use App\Models\BadanAnggaran;
 use App\Models\BadanKehormatan;
 use App\Models\BadanMusyawarah;
 use App\Models\badanpembentukan;
-use App\Models\fraksiDemokrat;
-use App\Models\FraksiGerindra;
-use App\Models\FraksiGolkar;
-use App\Models\FraksiNasdem;
-use App\Models\FraksiPdip;
-use App\Models\komisi;
-use App\Models\pimpinan;
-use App\Models\fraksiPembangunan;
-use App\Models\FraksiPkb;
+use App\Models\Fraksi;
 use App\Models\Gallery;
+use App\Models\Komisi;
+use App\Models\pimpinan;
+use App\Models\FraksiPkb;
+use App\Models\FraksiGolkar;
+use App\Models\FraksiPdip;
+use App\Models\FraksiNasdem;
+use App\Models\FraksiGerindra;
+use App\Models\FraksiDemokrat;
+use App\Models\fraksiPembangunan;
 use App\Models\KomisiA;
 use App\Models\KomisiB;
 use App\Models\KomisiC;
@@ -27,7 +28,8 @@ class PagesController extends Controller
 {
     public function index()
     {
-        return view('pages.dashboard');
+        $fraksi = Fraksi::all();
+        return view('pages.dashboard', compact('fraksi'));
     }
 
     public function pimpinanDprd()
@@ -44,101 +46,103 @@ class PagesController extends Controller
 
     public function komisi()
     {
-        $data = komisi::all();
+        $data = Komisi::all();
         return view('pages.komisi', compact('data'));
     }
 
     public function komisiA()
     {
-        $data = KomisiA::all();
-        return view('pages.komisi-a', compact('data'));
+        $anggotas = KomisiA::all();
+        $nama = 'Komisi A';
+        $deskripsi = 'Bidang Pemerintahan dsb (Silakan sesuaikan di PagesController atau View)';
+        $folder = 'komisi-a';
+        return view('pages.komisi-detail', compact('anggotas', 'nama', 'deskripsi', 'folder'));
     }
     public function komisiB()
     {
-        $data = KomisiB::all();
-        return view('pages.komisi-b', compact('data'));
+        $anggotas = KomisiB::all();
+        $nama = 'Komisi B';
+        $deskripsi = 'Bidang Perekonomian dan Keuangan';
+        $folder = 'komisi-b';
+        return view('pages.komisi-detail', compact('anggotas', 'nama', 'deskripsi', 'folder'));
     }
     public function komisiC()
     {
-        $data = KomisiC::all();
-        return view('pages.komisi-c', compact('data'));
+        $anggotas = KomisiC::all();
+        $nama = 'Komisi C';
+        $deskripsi = 'Bidang Pembangunan';
+        $folder = 'komisi-c';
+        return view('pages.komisi-detail', compact('anggotas', 'nama', 'deskripsi', 'folder'));
     }
     public function komisiD()
     {
-        $data = KomisiD::all();
-        return view('pages.komisi-d', compact('data'));
+        $anggotas = KomisiD::all();
+        $nama = 'Komisi D';
+        $deskripsi = 'Bidang Kesejahteraan Rakyat';
+        $folder = 'komisi-d';
+        return view('pages.komisi-detail', compact('anggotas', 'nama', 'deskripsi', 'folder'));
+    }
+
+    // --- FRAKSI ---
+    private function getFraksiBySlugOrName($slug, $name)
+    {
+        $fraksi = Fraksi::where('slug', $slug)->orWhere('nama', $name)->first();
+        if (!$fraksi) {
+            $fraksi = new Fraksi();
+            $fraksi->nama = $name . ' (Data Belum Diinput)';
+            $fraksi->deskripsi = "Silakan input data $name di halaman Admin > Master Data > Data Fraksi.";
+        }
+        return $fraksi;
     }
 
     public function fraksiPkb()
     {
-        $fraksiData = FraksiPkb::all();
-        
-        // Ambil entri pertama untuk judul, logo, dan deskripsi
-        $config = $fraksiData->first();
-
-        // Kirimkan kedua variabel ke view
-        return view('pages.fraksi-pkb', compact('fraksiData', 'config'));
+        $data = FraksiPkb::all();
+        $fraksi = $data->first();
+        $anggotas = $data;
+        return view('pages.fraksi-detail', compact('fraksi', 'anggotas'));
     }
     public function fraksiGolkar()
     {
-        $fraksiData = FraksiGolkar::all();
-        
-        // Ambil entri pertama untuk judul, logo, dan deskripsi
-        $config = $fraksiData->first();
-
-        // Kirimkan kedua variabel ke view
-        return view('pages.fraksi-golkar', compact('fraksiData', 'config'));
+        $data = FraksiGolkar::all();
+        $fraksi = $data->first();
+        $anggotas = $data;
+        return view('pages.fraksi-detail', compact('fraksi', 'anggotas'));
     }
     public function fraksiPdip()
     {
-        $fraksiData = FraksiPdip::all();
-        
-        // Ambil entri pertama untuk judul, logo, dan deskripsi
-        $config = $fraksiData->first();
-
-        // Kirimkan kedua variabel ke view
-        return view('pages.fraksi-pdip', compact('fraksiData', 'config'));
+        $data = FraksiPdip::all();
+        $fraksi = $data->first();
+        $anggotas = $data;
+        return view('pages.fraksi-detail', compact('fraksi', 'anggotas'));
     }
     public function fraksiNasdem()
     {
-        $fraksiData = FraksiNasdem::all();
-        
-        // Ambil entri pertama untuk judul, logo, dan deskripsi
-        $config = $fraksiData->first();
-
-        // Kirimkan kedua variabel ke view
-        return view('pages.fraksi-nasdem', compact('fraksiData', 'config'));
+        $data = FraksiNasdem::all();
+        $fraksi = $data->first();
+        $anggotas = $data;
+        return view('pages.fraksi-detail', compact('fraksi', 'anggotas'));
     }
     public function fraksiGerindra()
     {
-        $fraksiData = FraksiGerindra::all();
-        
-        // Ambil entri pertama untuk judul, logo, dan deskripsi
-        $config = $fraksiData->first();
-
-        // Kirimkan kedua variabel ke view
-        return view('pages.fraksi-gerindra', compact('fraksiData', 'config'));
+        $data = FraksiGerindra::all();
+        $fraksi = $data->first();
+        $anggotas = $data;
+        return view('pages.fraksi-detail', compact('fraksi', 'anggotas'));
     }
     public function fraksiDemokrat()
     {
-        $fraksiData = fraksiDemokrat::all();
-        
-        // Ambil entri pertama untuk judul, logo, dan deskripsi
-        $config = $fraksiData->first();
-
-        // Kirimkan kedua variabel ke view
-        return view('pages.fraksi-demokrat', compact('fraksiData', 'config'));
+        $data = FraksiDemokrat::all();
+        $fraksi = $data->first();
+        $anggotas = $data;
+        return view('pages.fraksi-detail', compact('fraksi', 'anggotas'));
     }
     public function fraksiPembangunan()
     {
-        // Ambil semua data fraksi pembangunan
-        $fraksiData = FraksiPembangunan::all();
-        
-        // Ambil entri pertama untuk judul, logo, dan deskripsi
-        $config = $fraksiData->first();
-
-        // Kirimkan kedua variabel ke view
-        return view('pages.fraksi-pembangunan', compact('fraksiData', 'config'));
+        $data = fraksiPembangunan::all();
+        $fraksi = $data->first();
+        $anggotas = $data;
+        return view('pages.fraksi-detail', compact('fraksi', 'anggotas'));
     }
     public function badanKehormatan()
     {
@@ -160,7 +164,7 @@ class PagesController extends Controller
         $data = badanpembentukan::all();
         return view('pages.badan-pembentukan', compact('data'));
     }
-    
+
     public function organisasi()
     {
         return view('pages.organisasi');
@@ -173,15 +177,47 @@ class PagesController extends Controller
     {
         // Ambil semua item gallery, diurutkan berdasarkan tanggal terbaru
         $galleryItems = Gallery::orderBy('created_at', 'desc')->get();
-        
+
         // Kirimkan data ke view
         return view('pages.gallery', compact('galleryItems'));
     }
+
+    public function showGalleryItem($slug)
+    {
+        $item = Gallery::where('slug', $slug)->firstOrFail();
+        // Fetch related items: other gallery items excluding the current one
+        $relatedItems = Gallery::where('id', '!=', $item->id)
+            ->orderBy('created_at', 'desc')
+            ->take(6)
+            ->get();
+        return view('pages.gallery-detail', compact('item', 'relatedItems'));
+    }
+
     public function aspirasi()
     {
         return view('pages.aspirasi');
     }
-    
+
+    public function sendContact(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'subject' => 'required|string',
+            'message' => 'required|string',
+        ]);
+
+        $data = $request->only(['name', 'email', 'subject', 'message']);
+
+        // Kirim email
+        try {
+            \Illuminate\Support\Facades\Mail::to('ardhiyasss8@gmail.com')->send(new \App\Mail\ContactMail($data));
+            return redirect()->back()->with('success', 'Pesan Anda telah berhasil dikirim. Terima kasih!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Maaf, terjadi kesalahan saat mengirim pesan. Silakan coba lagi nanti. Error: ' . $e->getMessage());
+        }
+    }
+
 
 }
 

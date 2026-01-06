@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class KomisiD extends Model
 {
-    protected $table = 'komisi_ds';
+    protected $table = 'komisi_d_s';
     protected $fillable = ['nama', 'jabatan', 'foto'];
 }

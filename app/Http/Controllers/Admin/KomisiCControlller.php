@@ -10,31 +10,31 @@ class KomisiCControlller extends Controller
 {
     public function index()
     {
-        $komisiC = KomisiC::all();
-        return view('admin.komisiC.index', compact('data'));
-    }   
-
-/*************  ✨ Windsurf Command ⭐  *************/
-    /**
-     * Show the form for creating a new komisiC resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-/*******  5d25cb85-76da-4e6f-94aa-b317e603518a  *******/
-    public function create(){
-        return view('admin.komisiC.create');
+        $data = KomisiC::all();
+        return view('admin.komisi-c.index', compact('data'));
     }
 
-    public function store(Request $request){
-                $request->validate([
-        'nama' => 'required',
-        'jabatan' => 'required',
-        'foto' => 'nullable|image|max:2048',
+    /*************  ✨ Windsurf Command ⭐  *************/
+    /**
+     * Show the form for creating a new komisiC resource.
+     */
+    /*******  5d25cb85-76da-4e6f-94aa-b317e603518a  *******/
+    public function create()
+    {
+        return view('admin.komisi-c.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'foto' => 'nullable|image|max:2048',
         ]);
 
-        $filename=null;
-        if($request->hasFile('foto')){
-            $filename = time().'_'.$request->file('foto')->extension();
+        $filename = null;
+        if ($request->hasFile('foto')) {
+            $filename = time() . '_' . $request->file('foto')->extension();
             $request->file('foto')->move(public_path('uploads/komisi-c/'), $filename);
         }
 
@@ -54,7 +54,7 @@ class KomisiCControlller extends Controller
     public function edit(string $id)
     {
         $data = KomisiC::findOrFail($id);
-        return view('admin.komisiC.edit', compact('data'));
+        return view('admin.komisi-c.edit', compact('data'));
     }
 
     public function update(Request $request, string $id)
@@ -67,12 +67,12 @@ class KomisiCControlller extends Controller
             'foto' => 'nullable|image|max:2048',
         ]);
 
-        $filename=$data->foto;
-        if($request->hasFile('foto')){
-            if($data->foto && file_exists(public_path('uploads/komisi-c/'.$data->foto))){
-                unlink(public_path('uploads/komisi-c/'.$data->foto));
+        $filename = $data->foto;
+        if ($request->hasFile('foto')) {
+            if ($data->foto && file_exists(public_path('uploads/komisi-c/' . $data->foto))) {
+                unlink(public_path('uploads/komisi-c/' . $data->foto));
             }
-            $filename = time().'_'.$request->file('foto')->getClientOriginalName();
+            $filename = time() . '_' . $request->file('foto')->getClientOriginalName();
             $request->file('foto')->move(public_path('uploads/komisi-c/'), $filename);
         }
         $data->update([
@@ -80,14 +80,14 @@ class KomisiCControlller extends Controller
             'jabatan' => $request->jabatan,
             'foto' => $filename,
         ]);
-        return redirect()->route('komisi-c.index')->with('success', 'Data berhasil diupdate.');   
+        return redirect()->route('komisi-c.index')->with('success', 'Data berhasil diupdate.');
     }
 
     public function destroy(string $id)
     {
         $data = KomisiC::findOrFail($id);
-        if($data->foto && file_exists(public_path('uploads/komisi-c/'.$data->foto))){
-            unlink(public_path('uploads/komisi-c/'.$data->foto));
+        if ($data->foto && file_exists(public_path('uploads/komisi-c/' . $data->foto))) {
+            unlink(public_path('uploads/komisi-c/' . $data->foto));
         }
         $data->delete();
         return redirect()->route('komisi-c.index')->with('success', 'Data berhasil dihapus.');

@@ -15,12 +15,13 @@ use App\Http\Controllers\Admin\FraksiPdipController;
 use App\Http\Controllers\Admin\FraksiPembangunanController;
 use App\Http\Controllers\Admin\FraksiPkbController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\FraksiController;
 use App\Http\Controllers\Admin\KomisiController;
 use App\Http\Controllers\Admin\PimpinanController;
-use App\Http\Controllers\KomisiAControlller;
-use App\Http\Controllers\KomisiBControlller;
-use App\Http\Controllers\KomisiCControlller;
-use App\Http\Controllers\KomisiDControlller;
+use App\Http\Controllers\Admin\KomisiAControlller;
+use App\Http\Controllers\Admin\KomisiBControlller;
+use App\Http\Controllers\Admin\KomisiCControlller;
+use App\Http\Controllers\Admin\KomisiDControlller;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,50 +69,57 @@ Route::get('/badan-pembentukan', [PagesController::class, 'badanPembentukan'])->
 Route::get('/organisasi', [PagesController::class, 'organisasi'])->name('organisasi');
 Route::get('/sakip', [PagesController::class, 'sakip'])->name('sakip');
 Route::get('/gallery', [PagesController::class, 'gallery'])->name('gallery');
-Route::get('/gallery/{slug}', [PagesController::class, 'showGalleryItem'])->name('gallery.show');
+Route::get('/gallery/{slug}', [PagesController::class, 'showGalleryItem'])->name('gallery.detail');
 Route::get('/aspirasi', [PagesController::class, 'aspirasi'])->name('aspirasi');
+Route::post('/contact/send', [PagesController::class, 'sendContact'])->name('contact.send');
 
 // --- RUTE ADMIN ---
 Route::prefix('admin')->group(function () {
-    // Rute Autentikasi Admin
-    Route::get('/', [LoginController::class, 'showLoginForm'])->name('admin.login');
-    Route::post('/login', [LoginController::class, 'login'])->name('admin.login.submit');
-    Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
+    // Rute Autentikasi Admin (Guest Only)
+    Route::middleware('guest')->group(function () {
+        Route::get('/', [LoginController::class, 'showLoginForm'])->name('admin.login');
+        Route::post('/login', [LoginController::class, 'login'])->name('admin.login.submit');
+    });
 
-    // Rute Dashboard
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    // Rute Admin (Auth Required)
+    Route::middleware('auth')->group(function () {
+        Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
-    // Rute Resource Umum
-    Route::resource('/pimpinan', PimpinanController::class);
-    Route::resource('/anggota', AnggotaController::class);
-    // CATATAN: Ganti nama rute resource gallery agar tidak bentrok dengan yang di dalam
-    Route::resource('/gallery', GalleryController::class); 
+        // Rute Dashboard
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
-    // Tanpa 'as' => 'admin.', maka nama routenya otomatis 'komisi.index'
-    Route::resource('komisi', KomisiController::class)->only(['index', 'store', 'destroy']);
-    // Sesuaikan juga nama route manualnya
-    Route::post('komisi/store-info', [KomisiController::class, 'store_info'])->name('komisi.store_info');
-    Route::resource('/komisi-a', KomisiAControlller::class);
-    Route::resource('/komisi-b', KomisiBControlller::class);
-    Route::resource('/komisi-c', KomisiCControlller::class);
-    Route::resource('/komisi-d', KomisiDControlller::class);
+        // Rute Resource Umum
+        Route::resource('/pimpinan', PimpinanController::class);
+        Route::resource('/anggota', AnggotaController::class);
+        Route::resource('/gallery', GalleryController::class)->except(['show']);
 
-    // Rute Resource Fraksi (Disederhanakan, dihapus Route::get redundan)
-    Route::resource('/pkb', FraksiPkbController::class);
-    Route::resource('/golkar', FraksiGolkarController::class);
-    Route::resource('/pdip', FraksiPdipController::class);
-    Route::resource('/gerindra', FraksiGerindraController::class);
-    Route::resource('/nasdem', FraksiNasdemController::class);
-    Route::resource('/demokrat', FraksiDemokratController::class);
-    Route::resource('/pembangunan', FraksiPembangunanController::class);
+        // Rute Master Data Fraksi & Komisi (Master)
+        Route::resource('fraksi', FraksiController::class);
+        Route::resource('komisi', KomisiController::class);
 
-    // Rute Resource Badan (Disederhanakan, menggunakan nama rute yang lebih pendek: anggaran, kehormatan, dll.)
-    Route::resource('/badan-anggaran', BadanAnggaranController::class);
-    Route::resource('/badan-kehormatan', BadanKehormatanController::class);
-    Route::resource('/badan-musyawarah', BadanMusyawarahController::class);
-    Route::resource('/badan-pembentukan', BadanPembentukanController::class);
+        // Rute Fraksi Spesifik (Anggota per Fraksi)
+        Route::resource('pkb', FraksiPkbController::class);
+        Route::resource('golkar', FraksiGolkarController::class);
+        Route::resource('pdip', FraksiPdipController::class);
+        Route::resource('gerindra', FraksiGerindraController::class);
+        Route::resource('nasdem', FraksiNasdemController::class);
+        Route::resource('demokrat', FraksiDemokratController::class);
+        Route::resource('pembangunan', FraksiPembangunanController::class);
 
-    // Rute Resource Lainnya
-    Route::resource('/organisasi', App\Http\Controllers\Admin\OrganisasiController::class);
-    Route::resource('/sakip', App\Http\Controllers\Admin\SakipController::class);
+        // Rute Komisi Spesifik (Anggota per Komisi)
+        Route::resource('komisi-a', KomisiAControlller::class);
+        Route::resource('komisi-b', KomisiBControlller::class);
+        Route::resource('komisi-c', KomisiCControlller::class);
+        Route::resource('komisi-d', KomisiDControlller::class);
+
+        // Rute Resource Badan
+        Route::resource('/badan-anggaran', BadanAnggaranController::class);
+        Route::resource('/badan-kehormatan', BadanKehormatanController::class);
+        Route::resource('/badan-musyawarah', BadanMusyawarahController::class);
+        Route::resource('/badan-pembentukan', BadanPembentukanController::class);
+
+        // Rute Resource Lainnya
+        Route::resource('/organisasi', App\Http\Controllers\Admin\OrganisasiController::class);
+        Route::resource('/sakip', App\Http\Controllers\Admin\SakipController::class);
+    });
 });

@@ -28,6 +28,7 @@ class GalleryController extends Controller
         $validated = $request->validate([
             'judul' => 'required|string|max:255',
             'deskripsi_singkat' => 'required|string|max:500',
+            'body' => 'required|string',
             'path_gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Max 2MB
             'slug' => 'nullable|string|unique:galleries,slug',
         ]);
@@ -38,6 +39,7 @@ class GalleryController extends Controller
         Gallery::create([
             'judul' => $validated['judul'],
             'deskripsi_singkat' => $validated['deskripsi_singkat'],
+            'body' => $validated['body'],
             'path_gambar' => $filename,
             'slug' => $slug,
         ]);
@@ -49,7 +51,7 @@ class GalleryController extends Controller
     {
         $galleryItem = Gallery::findOrFail($id);
         // Menggunakan nama variabel galleryItem di view edit
-        return view('admin.gallery.edit', ['galleryItem' => $galleryItem]); 
+        return view('admin.gallery.edit', ['galleryItem' => $galleryItem]);
     }
 
     public function update(Request $request, string $id)
@@ -72,7 +74,7 @@ class GalleryController extends Controller
             }
             $filename = $this->handleImageUpload($request);
         }
-        
+
         $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->judul);
 
         $galleryItem->update([
@@ -88,7 +90,7 @@ class GalleryController extends Controller
     public function destroy(string $id)
     {
         $galleryItem = Gallery::findOrFail($id);
-        
+
         // Hapus file gambar dari server
         if ($galleryItem->path_gambar) {
             File::delete(public_path($this->uploadDir . $galleryItem->path_gambar));
