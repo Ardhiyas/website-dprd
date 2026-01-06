@@ -196,10 +196,9 @@
         </div><!-- End Section Title -->
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
-
             <div class="row">
                 <div class="col-lg-3">
-                    <ul class="nav nav-tabs flex-column">
+                    <ul class="nav nav-tabs responsive-tabs flex-lg-column mb-3 mb-lg-0">
                         @foreach($fraksi as $index => $item)
                         <li class="nav-item">
                             <a class="nav-link {{ $index == 0 ? 'active show' : '' }}" data-bs-toggle="tab" href="#tabs-tab-{{ $item->id }}">
@@ -209,23 +208,43 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="col-lg-9 mt-4 mt-lg-0">
-                    <div class="tab-content">
+                <div class="col-lg-9">
+                    <div class="tab-content card border-0 shadow-sm p-4 h-100">
                         @foreach($fraksi as $index => $item)
                         <div class="tab-pane {{ $index == 0 ? 'active show' : '' }}" id="tabs-tab-{{ $item->id }}">
-                            <div class="row">
-                                <div class="col-lg-8 details order-2 order-lg-1">
-                                    <h3>{{ $item->nama }}</h3>
-                                    <div class="mt-3">
-                                        {!! $item->deskripsi !!}
+                            <div class="row align-items-center">
+                                <div class="col-lg-8 details order-2 order-lg-1 mt-4 mt-lg-0">
+                                    <h3 class="fw-bold">{{ $item->nama }}</h3>
+                                    <div class="mt-3 text-muted">
+                                        {!! Str::limit(strip_tags($item->deskripsi), 300) !!}
+                                    </div>
+                                    <div class="mt-4">
+                                        @php
+                                            $fraksiRoute = Str::slug($item->nama);
+                                            // Mapping khusus untuk Fraksi Pembangunan yang namanya panjang di Database
+                                            if ($fraksiRoute == 'fraksi-pembangunan-keadilan-sejahtera') {
+                                                $fraksiRoute = 'fraksi-pembangunan';
+                                            }
+                                        @endphp
+                                        @if(Route::has($fraksiRoute))
+                                            <a href="{{ route($fraksiRoute) }}" class="btn btn-primary btn-sm rounded-pill px-4">
+                                                Lihat Detail Fraksi <i class="bi bi-arrow-right ms-1"></i>
+                                            </a>
+                                        @else
+                                            <button class="btn btn-secondary btn-sm rounded-pill px-4" disabled title="Halaman detail belum tersedia (Check route: {{ $fraksiRoute }})">
+                                                Detail Belum Tersedia
+                                            </button>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-lg-4 text-center order-1 order-lg-2">
-                                    @if($item->logo)
-                                        <img src="{{ asset('uploads/fraksi/' . $item->logo) }}" alt="{{ $item->nama }}" class="img-fluid">
-                                    @else
-                                        <img src="{{ asset('dist') }}/assets/img/departments-1.jpg" alt="Default Logo" class="img-fluid">
-                                    @endif
+                                    <div class="fraksi-logo-container p-3 bg-white rounded shadow-sm">
+                                        @if($item->logo)
+                                            <img src="{{ asset('uploads/fraksi/' . $item->logo) }}" alt="{{ $item->nama }}" class="img-fluid fraksi-logo">
+                                        @else
+                                            <img src="{{ asset('dist') }}/assets/img/departments-1.jpg" alt="Default Logo" class="img-fluid fraksi-logo">
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -233,8 +252,72 @@
                     </div>
                 </div>
             </div>
-
         </div>
+
+        <style>
+            /* Responsive Tabs Styling */
+            .responsive-tabs {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                border-bottom: none;
+                padding-bottom: 5px;
+            }
+
+            .responsive-tabs::-webkit-scrollbar {
+                height: 4px;
+            }
+
+            .responsive-tabs::-webkit-scrollbar-thumb {
+                background: #007bff;
+                border-radius: 10px;
+            }
+
+            .responsive-tabs .nav-item {
+                flex: 0 0 auto;
+            }
+
+            @media (min-width: 992px) {
+                .responsive-tabs {
+                    flex-direction: column;
+                    overflow-x: visible;
+                }
+                .responsive-tabs .nav-link {
+                    margin-bottom: 10px;
+                    border: 1px solid #dee2e6;
+                    border-radius: 8px !important;
+                }
+                .responsive-tabs .nav-link.active {
+                    background-color: #007bff;
+                    color: white;
+                    border-color: #007bff;
+                }
+            }
+
+            .fraksi-logo-container {
+                transition: transform 0.3s ease;
+            }
+
+            .fraksi-logo-container:hover {
+                transform: scale(1.05);
+            }
+
+            .fraksi-logo {
+                max-height: 150px;
+                object-fit: contain;
+            }
+
+            .tab-pane .details h3 {
+                color: #2c3e50;
+                font-size: 24px;
+            }
+
+            .tab-content {
+                background: #f8f9fa;
+                border-radius: 15px !important;
+            }
+        </style>
 
     </section><!-- /Fraksi Section -->
 
