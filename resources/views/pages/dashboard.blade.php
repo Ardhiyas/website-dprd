@@ -200,54 +200,59 @@
                 <div class="col-lg-3">
                     <ul class="nav nav-tabs responsive-tabs flex-lg-column mb-3 mb-lg-0">
                         @foreach($fraksi as $index => $item)
-                        <li class="nav-item">
-                            <a class="nav-link {{ $index == 0 ? 'active show' : '' }}" data-bs-toggle="tab" href="#tabs-tab-{{ $item->id }}">
-                                {{ $item->nama }}
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ $index == 0 ? 'active show' : '' }}" data-bs-toggle="tab"
+                                    href="#tabs-tab-{{ $item->id }}">
+                                    {{ $item->nama }}
+                                </a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
                 <div class="col-lg-9">
                     <div class="tab-content card border-0 shadow-sm p-4 h-100">
                         @foreach($fraksi as $index => $item)
-                        <div class="tab-pane {{ $index == 0 ? 'active show' : '' }}" id="tabs-tab-{{ $item->id }}">
-                            <div class="row align-items-center">
-                                <div class="col-lg-8 details order-2 order-lg-1 mt-4 mt-lg-0">
-                                    <h3 class="fw-bold">{{ $item->nama }}</h3>
-                                    <div class="mt-3 text-muted">
-                                        {!! Str::limit(strip_tags($item->deskripsi), 300) !!}
+                            <div class="tab-pane {{ $index == 0 ? 'active show' : '' }}" id="tabs-tab-{{ $item->id }}">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-8 details order-2 order-lg-1 mt-4 mt-lg-0">
+                                        <h3 class="fw-bold">{{ $item->nama }}</h3>
+                                        <div class="mt-3 text-muted">
+                                            {!! Str::limit(strip_tags($item->deskripsi), 300) !!}
+                                        </div>
+                                        <div class="mt-4">
+                                            @php
+                                                $fraksiRoute = Str::slug($item->nama);
+                                                // Mapping khusus untuk Fraksi Pembangunan yang namanya panjang di Database
+                                                if ($fraksiRoute == 'fraksi-pembangunan-keadilan-sejahtera') {
+                                                    $fraksiRoute = 'fraksi-pembangunan';
+                                                }
+                                            @endphp
+                                            @if(Route::has($fraksiRoute))
+                                                <a href="{{ route($fraksiRoute) }}"
+                                                    class="btn btn-primary btn-sm rounded-pill px-4">
+                                                    Lihat Detail Fraksi <i class="bi bi-arrow-right ms-1"></i>
+                                                </a>
+                                            @else
+                                                <button class="btn btn-secondary btn-sm rounded-pill px-4" disabled
+                                                    title="Halaman detail belum tersedia (Check route: {{ $fraksiRoute }})">
+                                                    Detail Belum Tersedia
+                                                </button>
+                                            @endif
+                                        </div>
                                     </div>
-                                    <div class="mt-4">
-                                        @php
-                                            $fraksiRoute = Str::slug($item->nama);
-                                            // Mapping khusus untuk Fraksi Pembangunan yang namanya panjang di Database
-                                            if ($fraksiRoute == 'fraksi-pembangunan-keadilan-sejahtera') {
-                                                $fraksiRoute = 'fraksi-pembangunan';
-                                            }
-                                        @endphp
-                                        @if(Route::has($fraksiRoute))
-                                            <a href="{{ route($fraksiRoute) }}" class="btn btn-primary btn-sm rounded-pill px-4">
-                                                Lihat Detail Fraksi <i class="bi bi-arrow-right ms-1"></i>
-                                            </a>
-                                        @else
-                                            <button class="btn btn-secondary btn-sm rounded-pill px-4" disabled title="Halaman detail belum tersedia (Check route: {{ $fraksiRoute }})">
-                                                Detail Belum Tersedia
-                                            </button>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 text-center order-1 order-lg-2">
-                                    <div class="fraksi-logo-container p-3 bg-white rounded shadow-sm">
-                                        @if($item->logo)
-                                            <img src="{{ asset('uploads/fraksi/' . $item->logo) }}" alt="{{ $item->nama }}" class="img-fluid fraksi-logo">
-                                        @else
-                                            <img src="{{ asset('dist') }}/assets/img/departments-1.jpg" alt="Default Logo" class="img-fluid fraksi-logo">
-                                        @endif
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <div class="fraksi-logo-container p-3 bg-white rounded shadow-sm">
+                                            @if($item->logo)
+                                                <img src="{{ asset('uploads/fraksi/' . $item->logo) }}" alt="{{ $item->nama }}"
+                                                    class="img-fluid fraksi-logo">
+                                            @else
+                                                <img src="{{ asset('dist') }}/assets/img/departments-1.jpg" alt="Default Logo"
+                                                    class="img-fluid fraksi-logo">
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -283,11 +288,13 @@
                     flex-direction: column;
                     overflow-x: visible;
                 }
+
                 .responsive-tabs .nav-link {
                     margin-bottom: 10px;
                     border: 1px solid #dee2e6;
                     border-radius: 8px !important;
                 }
+
                 .responsive-tabs .nav-link.active {
                     background-color: #007bff;
                     color: white;
@@ -425,6 +432,25 @@
 
         </div>
 
+        <style>
+            .faq .faq-container .faq-item .faq-content p {
+                text-align: justify;
+                hyphens: auto;
+            }
+
+            @media (max-width: 768px) {
+                .faq .faq-container .faq-item h3 {
+                    font-size: 16px;
+                    line-height: 1.4;
+                }
+
+                .faq .faq-container .faq-item .faq-content p {
+                    font-size: 14px;
+                    line-height: 1.6;
+                }
+            }
+        </style>
+
     </section><!-- /Faq Section -->
 
     <!-- Contact Section -->
@@ -432,8 +458,9 @@
 
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>Contact</h2>
-            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            <h2>Kontak & Informasi</h2>
+            <p>Hubungi DPRD Ponorogo untuk menyampaikan aspirasi, pengaduan, atau permintaan informasi terkait kebijakan
+                daerah</p>
         </div><!-- End Section Title -->
 
         <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
@@ -538,6 +565,6 @@
                     confirmButtonText: 'Tutup'
                 });
             @endif
-                                                        });
+                                                            });
     </script>
 @endsection

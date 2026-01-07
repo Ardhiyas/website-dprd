@@ -97,52 +97,45 @@ class PagesController extends Controller
 
     public function fraksiPkb()
     {
-        $data = FraksiPkb::all();
-        $fraksi = $data->first();
-        $anggotas = $data;
-        return view('pages.fraksi-detail', compact('fraksi', 'anggotas'));
+        $fraksiData = FraksiPkb::all();
+        $config = $fraksiData->first();
+        return view('pages.fraksi-pkb', compact('config', 'fraksiData'));
     }
     public function fraksiGolkar()
     {
-        $data = FraksiGolkar::all();
-        $fraksi = $data->first();
-        $anggotas = $data;
-        return view('pages.fraksi-detail', compact('fraksi', 'anggotas'));
+        $fraksiData = FraksiGolkar::all();
+        $config = $fraksiData->first();
+        return view('pages.fraksi-golkar', compact('config', 'fraksiData'));
     }
     public function fraksiPdip()
     {
-        $data = FraksiPdip::all();
-        $fraksi = $data->first();
-        $anggotas = $data;
-        return view('pages.fraksi-detail', compact('fraksi', 'anggotas'));
+        $fraksiData = FraksiPdip::all();
+        $config = $fraksiData->first();
+        return view('pages.fraksi-pdip', compact('config', 'fraksiData'));
     }
     public function fraksiNasdem()
     {
-        $data = FraksiNasdem::all();
-        $fraksi = $data->first();
-        $anggotas = $data;
-        return view('pages.fraksi-detail', compact('fraksi', 'anggotas'));
+        $fraksiData = FraksiNasdem::all();
+        $config = $fraksiData->first();
+        return view('pages.fraksi-nasdem', compact('config', 'fraksiData'));
     }
     public function fraksiGerindra()
     {
-        $data = FraksiGerindra::all();
-        $fraksi = $data->first();
-        $anggotas = $data;
-        return view('pages.fraksi-detail', compact('fraksi', 'anggotas'));
+        $fraksiData = FraksiGerindra::all();
+        $config = $fraksiData->first();
+        return view('pages.fraksi-gerindra', compact('config', 'fraksiData'));
     }
     public function fraksiDemokrat()
     {
-        $data = FraksiDemokrat::all();
-        $fraksi = $data->first();
-        $anggotas = $data;
-        return view('pages.fraksi-detail', compact('fraksi', 'anggotas'));
+        $fraksiData = FraksiDemokrat::all();
+        $config = $fraksiData->first();
+        return view('pages.fraksi-demokrat', compact('config', 'fraksiData'));
     }
     public function fraksiPembangunan()
     {
-        $data = fraksiPembangunan::all();
-        $fraksi = $data->first();
-        $anggotas = $data;
-        return view('pages.fraksi-detail', compact('fraksi', 'anggotas'));
+        $fraksiData = fraksiPembangunan::all();
+        $config = $fraksiData->first();
+        return view('pages.fraksi-pembangunan', compact('config', 'fraksiData'));
     }
     public function badanKehormatan()
     {
