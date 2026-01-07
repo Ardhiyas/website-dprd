@@ -22,7 +22,7 @@
                     <p>DPRD Ponorogo berkomitmen mendengarkan suara masyarakat melalui berbagai kanal aspirasi, menyusun
                         peraturan daerah yang berpihak pada rakyat, dan mengawasi pelaksanaan pembangunan demi kesejahteraan
                         bersama.</p>
-                    <a href="#about" class="btn-get-started">Layanan Masyarakat</a>
+                    <a href="#services" class="btn-get-started">Layanan Masyarakat</a>
                 </div>
             </div><!-- End Carousel Item -->
 
@@ -33,7 +33,7 @@
                     <p>Sebagai representasi masyarakat Ponorogo yang kaya akan budaya, kami berkomitmen melestarikan dan
                         mengembangkan warisan budaya seperti Reog Ponorogo serta memajukan potensi lokal menuju kemandirian
                         daerah.</p>
-                    <a href="#about" class="btn-get-started">Read More</a>
+                    <a href="#tabs" class="btn-get-started">Read More</a>
                 </div>
             </div><!-- End Carousel Item -->
             <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
@@ -56,29 +56,25 @@
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
-                    <img src="{{ asset('dist') }}/assets/img/about.jpg" class="img-fluid" alt="">
-                    <a href="https://youtu.be/yKbUQkkA-ks?si=2jk7nqbbuc89bJrk" class="glightbox pulsating-play-btn"></a>
+                    @if($about && $about->image)
+                        <img src="{{ asset('uploads/about/' . $about->image) }}" class="img-fluid" alt="">
+                    @else
+                        <img src="{{ asset('dist') }}/assets/img/about.jpg" class="img-fluid" alt="">
+                    @endif
+                    <a href="{{ $about->video_url ?? 'https://youtu.be/yKbUQkkA-ks?si=2jk7nqbbuc89bJrk' }}" class="glightbox pulsating-play-btn"></a>
                 </div>
                 <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
-                    <h3>DPRD Ponorogo: Wadah Aspirasi Rakyat, Pengawal Pembangunan Daerah</h3>
+                    <h3>{{ $about->title ?? 'DPRD Ponorogo: Wadah Aspirasi Rakyat, Pengawal Pembangunan Daerah' }}</h3>
                     <p class="fst-italic">
-                        Sebagai representasi masyarakat Kabupaten Ponorogo, DPRD berkomitmen menjalankan fungsi
-                        konstitusional untuk mewujudkan pemerintahan yang demokratis, transparan, dan berpihak pada
-                        kesejahteraan rakyat.
+                        {{ $about->subtitle ?? 'Sebagai representasi masyarakat Kabupaten Ponorogo, DPRD berkomitmen menjalankan fungsi konstitusional untuk mewujudkan pemerintahan yang demokratis, transparan, dan berpihak pada kesejahteraan rakyat.' }}
                     </p>
                     <ul>
-                        <li><i class="bi bi-check2-all"></i> <span>Fungsi Legislasi:</strong> Menyusun dan menetapkan
-                                Peraturan Daerah (Perda) yang berpihak pada kepentingan masyarakat Ponorogo</span></li>
-                        <li><i class="bi bi-check2-all"></i> <span>Fungsi Anggaran:</strong> Menetapkan Anggaran
-                                Pendapatan dan Belanja Daerah (APBD) secara akuntabel dan transparan</span></li>
-                        <li><i class="bi bi-check2-all"></i> <span>Fungsi Pengawasan:</strong> Mengawasi pelaksanaan
-                                Perda dan kebijakan pemerintah daerah demi efektivitas pembangunan</span></li>
+                        <li><i class="bi bi-check2-all"></i> <span>{{ $about->point_1 ?? 'Fungsi Legislasi: Menyusun dan menetapkan Peraturan Daerah (Perda) yang berpihak pada kepentingan masyarakat Ponorogo' }}</span></li>
+                        <li><i class="bi bi-check2-all"></i> <span>{{ $about->point_2 ?? 'Fungsi Anggaran: Menetapkan Anggaran Pendapatan dan Belanja Daerah (APBD) secara akuntabel dan transparan' }}</span></li>
+                        <li><i class="bi bi-check2-all"></i> <span>{{ $about->point_3 ?? 'Fungsi Pengawasan: Mengawasi pelaksanaan Perda dan kebijakan pemerintah daerah demi efektivitas pembangunan' }}</span></li>
                     </ul>
                     <p>
-                        DPRD Ponorogo terdiri dari perwakilan partai politik yang terpilih melalui pemilihan umum,
-                        bekerja secara kolektif-kolegial untuk menyerap, menampung, dan menindaklanjuti aspirasi
-                        masyarakat. Dengan semangat "Ngesti Wiyata, Amrih Rahayu", kami bertekad membangun Ponorogo
-                        yang maju, mandiri, dan berbudaya.
+                        {{ $about->description ?? 'DPRD Ponorogo terdiri dari perwakilan partai politik yang terpilih melalui pemilihan umum, bekerja secara kolektif-kolegial untuk menyerap, menampung, dan menindaklanjuti aspirasi masyarakat. Dengan semangat "Ngesti Wiyata, Amrih Rahayu", kami bertekad membangun Ponorogo yang maju, mandiri, dan berbudaya.' }}
                     </p>
                 </div>
             </div>
@@ -243,8 +239,8 @@
                                     <div class="col-lg-4 text-center order-1 order-lg-2">
                                         <div class="fraksi-logo-container p-3 bg-white rounded shadow-sm">
                                             @if($item->logo)
-                                                <img src="{{ asset('uploads/fraksi/' . $item->logo) }}" alt="{{ $item->nama }}"
-                                                    class="img-fluid fraksi-logo">
+                                                <img src="{{ asset('uploads/' . ($item->folder ?? 'fraksi') . '/' . $item->logo) }}"
+                                                    alt="{{ $item->nama }}" class="img-fluid fraksi-logo">
                                             @else
                                                 <img src="{{ asset('dist') }}/assets/img/departments-1.jpg" alt="Default Logo"
                                                     class="img-fluid fraksi-logo">
@@ -345,84 +341,19 @@
 
                     <div class="faq-container">
 
-                        <div class="faq-item">
-                            <h3>Apa saja tugas dan wewenang DPRD?</h3>
-                            <div class="faq-content">
-                                <p>DPRD memiliki tiga fungsi utama: <strong>Fungsi Legislasi</strong> (membentuk Peraturan
-                                    Daerah), <strong>Fungsi Anggaran</strong> (menetapkan APBD), dan <strong>Fungsi
-                                        Pengawasan</strong> (mengawasi pelaksanaan Perda dan APBD). DPRD juga memiliki tugas
-                                    membentuk dan menetapkan Perda bersama Gubernur, serta menampung dan menindaklanjuti
-                                    aspirasi masyarakat.</p>
+                        @forelse($faqs as $faq)
+                            <div class="faq-item">
+                                <h3>{{ $faq->question }}</h3>
+                                <div class="faq-content">
+                                    <p>{!! nl2br(e($faq->answer)) !!}</p>
+                                </div>
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+                        @empty
+                            <div class="text-center py-5">
+                                <p>Belum ada data FAQ untuk ditampilkan.</p>
                             </div>
-                            <i class="faq-toggle bi bi-chevron-right"></i>
-                        </div><!-- End Faq item-->
-
-                        <div class="faq-item">
-                            <h3>Bagaimana cara menyampaikan aspirasi atau pengaduan ke DPRD?</h3>
-                            <div class="faq-content">
-                                <p>Masyarakat dapat menyampaikan aspirasi melalui beberapa cara: (1) <strong>Kunjungan
-                                        langsung</strong> ke Sekretariat DPRD pada jam kerja, (2) <strong>Surat
-                                        tertulis</strong> yang ditujukan kepada Pimpinan DPRD atau anggota komisi terkait,
-                                    (3) <strong>Melalui website resmi</strong> pada menu "Aspirasi Masyarakat", atau (4)
-                                    <strong>Media sosial resmi</strong> DPRD. Setiap pengaduan akan didokumentasikan dan
-                                    ditindaklanjuti sesuai prosedur.
-                                </p>
-                            </div>
-                            <i class="faq-toggle bi bi-chevron-right"></i>
-                        </div><!-- End Faq item-->
-
-                        <div class="faq-item">
-                            <h3>Apa perbedaan tugas antara Komisi A, B, C, dan D di DPRD?</h3>
-                            <div class="faq-content">
-                                <p>Setiap komisi membidangi urusan berbeda: <strong>Komisi A</strong> menangani
-                                    Pemerintahan, Hukum, dan Politik. <strong>Komisi B</strong> membidangi Perekonomian dan
-                                    Keuangan Daerah. <strong>Komisi C</strong> fokus pada Pembangunan Infrastruktur dan
-                                    Lingkungan Hidup. Sedangkan <strong>Komisi D</strong> menangani urusan Kesejahteraan
-                                    Rakyat (Pendidikan, Kesehatan, Sosial). Pembagian ini memastikan pengawasan yang lebih
-                                    spesifik dan mendalam terhadap setiap bidang pemerintahan.</p>
-                            </div>
-                            <i class="faq-toggle bi bi-chevron-right"></i>
-                        </div><!-- End Faq item-->
-
-                        <div class="faq-item">
-                            <h3>Bagaimana proses pembentukan suatu Peraturan Daerah (Perda)?</h3>
-                            <div class="faq-content">
-                                <p>Proses pembentukan Perda melalui tahapan: (1) <strong>Perencanaan</strong> penyusunan
-                                    Program Legislasi Daerah (Prolegda), (2) <strong>Penyusunan Rancangan Perda</strong>
-                                    oleh eksekutif atau DPRD, (3) <strong>Pembahasan</strong> di komisi dan alat kelengkapan
-                                    DPRD, (4) <strong>Persetujuan bersama</strong> antara DPRD dan Gubernur, (5)
-                                    <strong>Pengundangan</strong> oleh Gubernur. Masyarakat dapat memberikan masukan melalui
-                                    mekanisme publik hearing (dengar pendapat).
-                                </p>
-                            </div>
-                            <i class="faq-toggle bi bi-chevron-right"></i>
-                        </div><!-- End Faq item-->
-
-                        <div class="faq-item">
-                            <h3>Kapan saja rapat-rapat DPRD dilaksanakan dan dapatkah publik hadir?</h3>
-                            <div class="faq-content">
-                                <p>Rapat DPRD terdiri dari Rapat Paripurna, Rapat Komisi, Ralat Alat Kelengkapan, dan Rapat
-                                    Fraksi. <strong>Jadwal rapat</strong> dapat dilihat di website resmi atau papan
-                                    pengumuman Sekretariat DPRD. <strong>Rapat Paripurna umumnya terbuka untuk umum</strong>
-                                    (kecuali rapat tertutup untuk hal khusus). Masyarakat yang ingin menghadiri diharapkan
-                                    mendaftar terlebih dahulu melalui Sekretariat DPRD dan mematuhi tata tertib yang
-                                    berlaku.</p>
-                            </div>
-                            <i class="faq-toggle bi bi-chevron-right"></i>
-                        </div><!-- End Faq item-->
-
-                        <div class="faq-item">
-                            <h3>Bagaimana cara mengakses dokumen publik seperti APBD, Perda, atau Nota Kesepakatan?</h3>
-                            <div class="faq-content">
-                                <p>Semua <strong>dokumen publik</strong> DPRD (Perda, APBD, Risalah Rapat, Laporan Kinerja)
-                                    dapat diakses secara terbuka melalui: (1) <strong>Website resmi DPRD</strong> pada menu
-                                    "Dokumen Publik" atau "Perpustakaan Digital", (2) <strong>Layanan Perpustakaan &
-                                        Arsip</strong> di Sekretariat DPRD pada jam kerja, (3) <strong>Permohonan
-                                        informasi</strong> berdasarkan Undang-Undang Keterbukaan Informasi Publik (UU KIP).
-                                </p>
-                            </div>
-                            <i class="faq-toggle bi bi-chevron-right"></i>
-                        </div><!-- End Faq item-->
+                        @endforelse
 
                     </div>
 
@@ -565,6 +496,6 @@
                     confirmButtonText: 'Tutup'
                 });
             @endif
-                                                            });
+                                                                        });
     </script>
 @endsection

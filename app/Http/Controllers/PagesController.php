@@ -29,7 +29,40 @@ class PagesController extends Controller
     public function index()
     {
         $fraksi = Fraksi::all();
-        return view('pages.dashboard', compact('fraksi'));
+        $about = \App\Models\About::first();
+        $faqs = \App\Models\Faq::all();
+
+        // Ambil logo dan deskripsi dari tabel spesifik masing-masing fraksi
+        foreach ($fraksi as $item) {
+            $slug = \Illuminate\Support\Str::slug($item->nama);
+            if ($slug == 'fraksi-pembangunan-keadilan-sejahtera') {
+                $slug = 'fraksi-pembangunan';
+            }
+
+            // Tentukan nama tabel berdasarkan slug
+            // Contoh: fraksi-pkb -> fraksi_pkbs
+            $tableName = \Illuminate\Support\Str::snake(\Illuminate\Support\Str::replace('-', '_', $slug)) . 's';
+
+            // Kasus khusus untuk fraksi pembangunan yang menggunakan dash di nama tabel (dari model)
+            if ($slug == 'fraksi-pembangunan') {
+                $tableName = 'fraksi-pembangunans';
+            }
+
+            try {
+                $details = \Illuminate\Support\Facades\DB::table($tableName)->first();
+                if ($details) {
+                    $item->logo = $details->logo;
+                    $item->deskripsi = $details->deskripsi;
+                    $item->folder = $slug;
+                } else {
+                    $item->folder = 'fraksi';
+                }
+            } catch (\Exception $e) {
+                $item->folder = 'fraksi';
+            }
+        }
+
+        return view('pages.dashboard', compact('fraksi', 'about', 'faqs'));
     }
 
     public function pimpinanDprd()

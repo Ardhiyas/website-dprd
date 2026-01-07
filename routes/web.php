@@ -22,6 +22,8 @@ use App\Http\Controllers\Admin\KomisiAControlller;
 use App\Http\Controllers\Admin\KomisiBControlller;
 use App\Http\Controllers\Admin\KomisiCControlller;
 use App\Http\Controllers\Admin\KomisiDControlller;
+use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -117,6 +119,10 @@ Route::prefix('admin')->group(function () {
         Route::resource('/badan-kehormatan', BadanKehormatanController::class);
         Route::resource('/badan-musyawarah', BadanMusyawarahController::class);
         Route::resource('/badan-pembentukan', BadanPembentukanController::class);
+
+        // Rute Settings Dashboard
+        Route::resource('/about', AboutController::class)->only(['index', 'store']);
+        Route::resource('/faq', FaqController::class);
 
         // Rute Resource Lainnya
         Route::resource('/organisasi', App\Http\Controllers\Admin\OrganisasiController::class);
